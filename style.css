@@ -3,7 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background: #0f0f0f;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
   color: #f9f9f9;
   text-align: center;
 }
@@ -15,6 +15,7 @@ a {
 /* Header */
 header {
   background: linear-gradient(90deg, #ffcc33, #ff9900);
+  color: #0a0a0a;
   padding: 60px 20px;
   color: #0a0a0a;
 }
