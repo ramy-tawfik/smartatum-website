@@ -18,7 +18,13 @@ header {
   padding: 60px 20px;
   color: #0a0a0a;
 }
+header img {
+  transition: transform 0.3s;
+}
 
+header img:hover {
+  transform: scale(1.1);
+}
 header h1 {
   font-size: 3em;
   margin: 10px 0;
