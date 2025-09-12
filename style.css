@@ -95,7 +95,19 @@ footer {
   padding: 20px;
   margin-top: 50px;
 }
+#visitor-counter {
+  color: #ffcc33;
+  font-size: 0.9em;
+}
 
+#visitor-counter a {
+  color: #ffcc33;
+  text-decoration: none;
+}
+
+#visitor-counter a:hover {
+  text-decoration: underline;
+}
 /* Responsive */
 @media(max-width: 650px){
   #games {
