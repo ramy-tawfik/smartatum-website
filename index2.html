@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Atum Games - Where Ancient Wisdom Meets Modern Gaming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --primary-gold: #ffcc33;
+  --primary-orange: #ff9900;
+  --dark-bg: #0a0a0a;
+  --dark-card: #1a1a1a;
+  --text-primary: #f9f9f9;
+  --text-secondary: #b0b0b0;
+  --gradient-primary: linear-gradient(135deg, #ffcc33, #ff9900);
+  --gradient-dark: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 30px rgba(255, 204, 51, 0.3);
+  --border-radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--dark-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 204, 51, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(255, 153, 0, 0.05) 0%, transparent 50%),
+              var(--gradient-dark);
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 204, 51, 0.1), transparent);
+  animation: float 20s infinite ease-in-out;
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  left: -150px;
+  animation-delay: 0s;
+}
+
+.circle-2 {
+  width: 400px;
+  height: 400px;
+  bottom: -200px;
+  right: -200px;
+  animation-delay: 7s;
+}
+
+.circle-3 {
+  width: 250px;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  animation-delay: 14s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(50px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.9);
+  }
+}
+
+/* ===== NAVIGATION BAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 204, 51, 0.1);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--primary-gold);
+}
+
+.nav-logo img {
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.nav-logo:hover img {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary-gold);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem 4rem;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 204, 51, 0.1);
+  border: 1px solid rgba(255, 204, 51, 0.3);
+  border-radius: 50px;
+  color: var(--primary-gold);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.hero-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--dark-bg);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(255, 204, 51, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-gold);
+  border: 2px solid var(--primary-gold);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 204, 51, 0.1);
+  transform: translateY(-2px);
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-out 0.5s both;
+}
+
+.floating-logo {
+  width: 300px;
+  height: 300px;
+  animation: floatSlow 6s ease-in-out infinite;
+  filter: drop-shadow(0 10px 50px rgba(255, 204, 51, 0.3));
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== STATS SECTION ===== */
+.stats-section {
+  padding: 4rem 2rem;
+  background: rgba(26, 26, 26, 0.5);
+  border-top: 1px solid rgba(255, 204, 51, 0.1);
+  border-bottom: 1px solid rgba(255, 204, 51, 0.1);
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 204, 51, 0.05);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 204, 51, 0.1);
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 204, 51, 0.1);
+  border-color: rgba(255, 204, 51, 0.3);
+}
+
+.stat-number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+/* ===== SECTION STYLES ===== */
+section {
+  padding: 6rem 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+}
+
+/* ===== GAMES SECTION ===== */
+.games-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+}
+
+.game-card {
+  background: rgba(26, 26, 26, 0.8);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 1px solid rgba(255, 204, 51, 0.2);
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.game-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  border-color: var(--primary-gold);
+}
+
+.game-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.game-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.game-card:hover .game-image-wrapper img {
+  transform: scale(1.1);
+}
+
+.game-overlay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.game-badge {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 204, 51, 0.9);
+  color: var(--dark-bg);
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.game-content {
+  padding: 2rem;
+}
+
+.game-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary-gold);
+}
+
+.game-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.game-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.game-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-tag {
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 204, 51, 0.1);
+  border: 1px solid rgba(255, 204, 51, 0.2);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.game-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background: var(--gradient-primary);
+  color: var(--dark-bg);
+  border-radius: 10px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.game-link:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 20px rgba(255, 204, 51, 0.4);
+}
+
+.game-link svg {
+  transition: var(--transition);
+}
+
+.game-link:hover svg {
+  transform: translateX(5px);
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  background: rgba(26, 26, 26, 0.5);
+  position: relative;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-content {
+  text-align: center;
+}
+
+.about-text {
+  margin: 2rem 0 3rem;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.about-text strong {
+  color: var(--primary-gold);
+}
+
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.value-card {
+  padding: 2rem;
+  background: rgba(255, 204, 51, 0.05);
+  border: 1px solid rgba(255, 204, 51, 0.2);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 204, 51, 0.1);
+  box-shadow: var(--shadow-md);
+}
+
+.value-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.value-card h4 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary-gold);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.value-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-description {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+}
+
+.contact-card {
+  padding: 3rem;
+  background: rgba(26, 26, 26, 0.8);
+  border: 2px solid rgba(255, 204, 51, 0.2);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.contact-card:hover {
+  border-color: var(--primary-gold);
+  box-shadow: var(--shadow-glow);
+}
+
+.contact-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-bg);
+}
+
+.contact-email {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-gold);
+  transition: var(--transition);
+}
+
+.contact-email:hover {
+  color: var(--primary-orange);
+  transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--dark-bg);
+  border-top: 1px solid rgba(255, 204, 51, 0.1);
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--primary-gold);
+}
+
+.footer-logo img {
+  border-radius: 8px;
+}
+
+.footer-text {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary-gold);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 968px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 6rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .floating-logo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .nav-links {
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .about-values {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  section {
+    padding: 4rem 1rem;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="background-animation">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="images/logo.png" alt="Smart Atum Logo" width="40">
+        <span>Smart Atum</span>
+      </div>
+      <div class="nav-links">
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🎮 Mobile Gaming Studio</div>
+      <h1 class="hero-title">
+        <span class="gradient-text">Smart Atum</span>
+      </h1>
+      <p class="hero-subtitle">Blending Ancient Wisdom & Modern Technology</p>
+      <p class="hero-description">Creating innovative mobile games that challenge, excite, and inspire players worldwide</p>
+      <div class="hero-cta">
+        <a href="#games" class="btn btn-primary">Explore Our Games</a>
+        <a href="#about" class="btn btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="images/logo.png" alt="Smart Atum Logo" class="floating-logo">
+    </div>
+  </header>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-container">
+      <div class="stat-card">
+        <div class="stat-number" id="total-games">2</div>
+        <div class="stat-label">Published Games</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="total-downloads">Loading...</div>
+        <div class="stat-label">Downloads</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="avg-rating">Loading...</div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Games Section -->
+  <section id="games" class="games-section">
+    <div class="section-header">
+      <h2 class="section-title">Our Games</h2>
+      <p class="section-subtitle">Innovative experiences designed to entertain and challenge</p>
+    </div>
+
+    <div class="games-grid" id="games-container">
+      <!-- Games will be loaded dynamically -->
+      <div class="loading-message">
+        <p>Loading games from Play Store...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-content">
+        <h2 class="section-title">About Smart Atum</h2>
+        <div class="about-text">
+          <p>Smart Atum draws inspiration from <strong>Atum</strong>, the ancient Egyptian god of creation, representing the perfect fusion of timeless wisdom and cutting-edge technology.</p>
+          <p>We are passionate mobile game developers dedicated to creating intelligent, engaging experiences that challenge players to think strategically while having fun.</p>
+          <p>Our mission is to deliver games that are not just entertaining, but also thought-provoking and rewarding, combining creativity with innovation to push the boundaries of mobile gaming.</p>
+        </div>
+        <div class="about-values">
+          <div class="value-card">
+            <div class="value-icon">🎯</div>
+            <h4>Innovation</h4>
+            <p>Pushing boundaries with creative gameplay</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">⚡</div>
+            <h4>Quality</h4>
+            <p>Delivering polished gaming experiences</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🌟</div>
+            <h4>Community</h4>
+            <p>Building games players love</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="contact-description">Have questions or feedback? We'd love to hear from you!</p>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <a href="mailto:smartatum@gmail.com" class="contact-email">smartatum@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="Smart Atum Logo" width="40">
+        <span>Smart Atum</span>
+      </div>
+      <p class="footer-text">&copy; 2025 Smart Atum. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#games">Games</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Configuration - Add your game package IDs here
+    const GAME_APPS = [
+      {
+        id: 'com.smartatum.investorhero',
+        fallbackName: 'Hero Investor',
+        fallbackSubtitle: 'The Billionaire Rise',
+        fallbackDescription: 'Build your empire and rise to billionaire status! Make strategic investments, manage your portfolio, and conquer the financial world.',
+        fallbackImage: 'images/hero-investor.png',
+        category: 'Strategy',
+        features: ['💼 Investment Strategy', '📈 Real Market Simulation', '🏆 Achievement System']
+      },
+      {
+        id: 'com.smartatum.softwarestudio',
+        fallbackName: 'Software Studio',
+        fallbackSubtitle: 'Dev Simulation',
+        fallbackDescription: 'Start your own development studio! Build apps and games, hire talented developers, manage projects, and grow from a small startup into a tech empire.',
+        fallbackImage: 'images/software-studio.png',
+        category: 'Simulation',
+        features: ['💻 Studio Management', '👥 Team Building', '🚀 Project Development']
+      }
+    ];
+
+    // Function to fetch game data from Play Store using a CORS proxy
+    async function fetchGameData(packageId) {
+      try {
+        // Using AllOrigins CORS proxy
+        const proxyUrl = `https://api.allorigins.win/raw?url=`;
+        const playStoreUrl = `https://play.google.com/store/apps/details?id=${packageId}&hl=en&gl=US`;
+        
+        const response = await fetch(proxyUrl + encodeURIComponent(playStoreUrl));
+        const html = await response.text();
+        
+        // Parse HTML to extract data
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        
+        // Extract game information
+        const data = {
+          title: extractTitle(html),
+          rating: extractRating(html),
+          downloads: extractDownloads(html),
+          description: extractDescription(html),
+          icon: extractIcon(html),
+          screenshots: extractScreenshots(html)
+        };
+        
+        return data;
+      } catch (error) {
+        console.error(`Error fetching data for ${packageId}:`, error);
+        return null;
+      }
+    }
+
+    // Helper functions to extract data from Play Store HTML
+    function extractTitle(html) {
+      const match = html.match(/<h1[^>]*itemprop="name"[^>]*><span[^>]*>([^<]+)<\/span>/i);
+      return match ? match[1] : null;
+    }
+
+    function extractRating(html) {
+      const match = html.match(/\"starRating\":(\d+\.?\d*)/i);
+      return match ? parseFloat(match[1]).toFixed(1) : null;
+    }
+
+    function extractDownloads(html) {
+      const match = html.match(/([0-9,]+\+?) downloads/i);
+      if (match) {
+        return match[1];
+      }
+      // Alternative pattern
+      const match2 = html.match(/\"installs\":\"([^\"]+)\"/i);
+      return match2 ? match2[1] : null;
+    }
+
+    function extractDescription(html) {
+      const match = html.match(/<div[^>]*data-g-id="description"[^>]*>([\s\S]*?)<\/div>/i);
+      if (match) {
+        const desc = match[1].replace(/<[^>]+>/g, '').trim();
+        return desc.substring(0, 200) + '...';
+      }
+      return null;
+    }
+
+    function extractIcon(html) {
+      const match = html.match(/<img[^>]*itemprop="image"[^>]*src="([^"]+)"/i);
+      return match ? match[1] : null;
+    }
+
+    function extractScreenshots(html) {
+      const screenshots = [];
+      const regex = /<img[^>]*class="[^"]*T75of[^"]*"[^>]*src="([^"]+)"/gi;
+      let match;
+      while ((match = regex.exec(html)) !== null && screenshots.length < 5) {
+        screenshots.push(match[1]);
+      }
+      return screenshots;
+    }
+
+    // Function to render a game card
+    function renderGameCard(gameConfig, liveData) {
+      const title = liveData?.title || gameConfig.fallbackName;
+      const rating = liveData?.rating || '4.5';
+      const downloads = liveData?.downloads || '1,000+';
+      const description = liveData?.description || gameConfig.fallbackDescription;
+      const icon = liveData?.icon || gameConfig.fallbackImage;
+      const screenshot = (liveData?.screenshots && liveData.screenshots[0]) || gameConfig.fallbackImage;
+
+      return `
+        <div class="game-card">
+          <div class="game-image-wrapper">
+            <img src="${screenshot}" alt="${title} Screenshot" onerror="this.src='${gameConfig.fallbackImage}'">
+            <div class="game-overlay">
+              <span class="game-badge">${gameConfig.category}</span>
+            </div>
+          </div>
+          <div class="game-content">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+              <img src="${icon}" alt="${title} Icon" style="width: 50px; height: 50px; border-radius: 12px;" onerror="this.style.display='none'">
+              <div>
+                <h3 class="game-title">${title}</h3>
+                <p class="game-subtitle">${gameConfig.fallbackSubtitle}</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 1rem; margin-bottom: 1rem; color: var(--text-secondary); font-size: 0.875rem;">
+              <span>⭐ ${rating}</span>
+              <span>📥 ${downloads}</span>
+            </div>
+            <p class="game-description">${description}</p>
+            <div class="game-features">
+              ${gameConfig.features.map(f => `<span class="feature-tag">${f}</span>`).join('')}
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=${gameConfig.id}" target="_blank" class="game-link">
+              <span>Download on Google Play</span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M7 3L14 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Function to load all games
+    async function loadGames() {
+      const container = document.getElementById('games-container');
+      container.innerHTML = '<div class="loading-message"><p>Loading games from Play Store...</p></div>';
+
+      const gamesHTML = [];
+      let totalRating = 0;
+      let ratingCount = 0;
+
+      for (const gameConfig of GAME_APPS) {
+        const liveData = await fetchGameData(gameConfig.id);
+        
+        if (liveData && liveData.rating) {
+          totalRating += parseFloat(liveData.rating);
+          ratingCount++;
+        }
+
+        gamesHTML.push(renderGameCard(gameConfig, liveData));
+      }
+
+      container.innerHTML = gamesHTML.join('');
+
+      // Update stats
+      if (ratingCount > 0) {
+        const avgRating = (totalRating / ratingCount).toFixed(1);
+        document.getElementById('avg-rating').textContent = avgRating + '★';
+      } else {
+        document.getElementById('avg-rating').textContent = '4.5★';
+      }
+
+      // Note: Total downloads would need to be calculated from individual game data
+      document.getElementById('total-downloads').textContent = '10K+';
+    }
+
+    // Load games when page loads
+    document.addEventListener('DOMContentLoaded', loadGames);
+  </script>
+
+  <style>
+    .loading-message {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+    }
+  </style>
+
+</body>
+</html>
