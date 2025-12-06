@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for Dev Tycoon - Mobile Business Simulation Game">
+    <title>Privacy Policy - Dev Tycoon</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2196F3;
+            border-bottom: 3px solid #2196F3;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #1976D2;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #E3F2FD;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+        .summary {
+            background-color: #E3F2FD;
+            padding: 25px;
+            border-left: 4px solid #2196F3;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .last-updated {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        p {
+            margin: 15px 0;
+        }
+        strong {
+            color: #1976D2;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 30px 0;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy for Dev Tycoon</h1>
+        <p class="last-updated"><strong>Last Updated:</strong> December 5, 2024</p>
+
+        <div class="summary">
+            <h3>Quick Overview</h3>
+            <ul>
+                <li>✅ We do NOT collect personal information</li>
+                <li>✅ Game data stays on your device</li>
+                <li>✅ Third-party services (ads, analytics) may collect anonymous data</li>
+                <li>✅ You can opt-out of personalized ads anytime</li>
+                <li>✅ You can delete all data by uninstalling the app</li>
+                <li>✅ We comply with COPPA and Google Play policies</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>This privacy policy applies to the Dev Tycoon mobile application (hereby referred to as "Application" or "App") for mobile devices, created by Ramy Tawfik / Smartatum (hereby referred to as "Service Provider") as a free service with advertisements.</p>
+            <p>This policy is intended to inform users regarding the policies concerning the collection, use, and disclosure of Personal Information if anyone decides to use this Service.</p>
+        </div>
+
+        <div class="section">
+            <h2>Information Collection and Use</h2>
+            <p>The Application does <strong>NOT</strong> collect any personally identifiable information from users. The game is designed to work entirely offline, and all game progress is stored locally on your device.</p>
+
+            <h3>Data Stored Locally on Your Device</h3>
+            <p>The following data is stored locally on your device and is <strong>NOT</strong> transmitted to any servers:</p>
+            <ul>
+                <li><strong>Game Progress:</strong> Your skills, balance, products, contracts, energy level, and game date</li>
+                <li><strong>Financial Data:</strong> In-game currency amounts, cryptocurrency holdings, loan status, and savings</li>
+                <li><strong>User Preferences:</strong> Game settings and tutorial completion status</li>
+                <li><strong>Product History:</strong> Your released products and their performance</li>
+            </ul>
+
+            <p>This data is stored using:</p>
+            <ul>
+                <li>Android SharedPreferences</li>
+                <li>JSON files in internal storage</li>
+                <li>SQLite database (for product history)</li>
+            </ul>
+
+            <p><strong>Important:</strong> This data remains on your device and is not accessible to the Service Provider or any third parties.</p>
+        </div>
+
+        <div class="section">
+            <h2>Third-Party Services</h2>
+            <p>The Application uses third-party services that may collect information used to identify you. These services are integrated for analytics, crash reporting, and advertising purposes.</p>
+
+            <h3>Google Play Services</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Core Android functionality</li>
+                <li><strong>Data Collected:</strong> Device information, app interactions</li>
+                <li><strong>Privacy Policy:</strong> <a href="https://www.google.com/policies/privacy/" target="_blank">Google Privacy Policy</a></li>
+            </ul>
+
+            <h3>Google AdMob</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Display advertisements</li>
+                <li><strong>Data Collected:</strong> Advertising ID, device information, interaction with ads</li>
+                <li><strong>Privacy Policy:</strong> <a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob Privacy Policy</a></li>
+                <li><strong>Your Controls:</strong> You can reset your advertising ID or opt-out of personalized ads in your device settings</li>
+            </ul>
+
+            <h3>Firebase Analytics</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Understand app usage and improve user experience</li>
+                <li><strong>Data Collected:</strong> Anonymous usage statistics, device information, app crashes</li>
+                <li><strong>Privacy Policy:</strong> <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></li>
+                <li><strong>Data Retention:</strong> Analytics data is retained for 60 days</li>
+            </ul>
+
+            <h3>Firebase Crashlytics</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Identify and fix app crashes</li>
+                <li><strong>Data Collected:</strong> Crash logs, device state at time of crash, stack traces</li>
+                <li><strong>Privacy Policy:</strong> <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></li>
+                <li><strong>Note:</strong> No personal information is included in crash reports</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Advertising</h2>
+            <p>The Application displays advertisements provided by Google AdMob. These ads may be:</p>
+            <ul>
+                <li><strong>Interstitial Ads:</strong> Full-screen ads shown at natural breaks (e.g., after releasing a product)</li>
+                <li><strong>Rewarded Video Ads:</strong> Optional ads that users can watch to receive in-game benefits</li>
+            </ul>
+
+            <h3>Ad-Related Data Collection</h3>
+            <p>AdMob may collect:</p>
+            <ul>
+                <li>Advertising ID</li>
+                <li>Device information (model, OS version)</li>
+                <li>IP address</li>
+                <li>Ad interaction data</li>
+            </ul>
+
+            <h3>Opt-Out Options</h3>
+            <p>You can limit ad tracking:</p>
+            <ol>
+                <li><strong>Android:</strong> Settings → Google → Ads → Opt out of Ads Personalization</li>
+                <li><strong>Reset Advertising ID:</strong> Settings → Google → Ads → Reset advertising ID</li>
+            </ol>
+            <p><strong>Note:</strong> Opting out of personalized ads does not remove ads entirely; you will still see ads, but they may be less relevant to you.</p>
+        </div>
+
+        <div class="section">
+            <h2>Children's Privacy</h2>
+            <p>The Application does not knowingly collect personally identifiable information from children under 13. The app is rated for Everyone and contains no age-restricted content.</p>
+            <p>The third-party services (AdMob, Firebase) comply with COPPA (Children's Online Privacy Protection Act) and Google Play's Families Policy.</p>
+            <p>If you are a parent or guardian and believe your child has provided personal information, please contact us at <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a>, and we will work to address your concerns.</p>
+        </div>
+
+        <div class="section">
+            <h2>Security</h2>
+            <p>We value your trust. Since the Application does not collect or transmit personal data to our servers, the security of your game data depends on:</p>
+            <ul>
+                <li>Your device's security (screen lock, encryption)</li>
+                <li>Android's built-in security features</li>
+                <li>Local data storage protections</li>
+            </ul>
+            <p>Third-party services (AdMob, Firebase) use industry-standard security measures to protect data transmitted to their servers.</p>
+        </div>
+
+        <div class="section">
+            <h2>Data Retention and Deletion</h2>
+
+            <h3>Local Game Data</h3>
+            <p>Game data is stored on your device indefinitely until you:</p>
+            <ul>
+                <li>Uninstall the app (deletes all local data)</li>
+                <li>Use the in-game "Reset Game" option</li>
+                <li>Clear app data manually in Android settings</li>
+            </ul>
+
+            <h3>Third-Party Data</h3>
+            <ul>
+                <li><strong>Firebase Analytics:</strong> Retained for 60 days, then automatically deleted</li>
+                <li><strong>Firebase Crashlytics:</strong> Retained for 90 days, then automatically deleted</li>
+                <li><strong>AdMob:</strong> Follow Google's data retention policies</li>
+            </ul>
+
+            <h3>Your Right to Delete Data</h3>
+            <p>You have the right to request deletion of any data associated with your usage:</p>
+            <ul>
+                <li><strong>Local Data:</strong> Simply uninstall the app or use the in-game reset option</li>
+                <li><strong>Analytics Data:</strong> Email us at <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a> to request deletion</li>
+                <li><strong>Ad Data:</strong> Use Google's <a href="https://myactivity.google.com/" target="_blank">My Activity</a> to manage your data</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Changes to This Privacy Policy</h2>
+            <p>This Privacy Policy may be updated from time to time. You are advised to review this page periodically for any changes. Changes are effective immediately upon posting.</p>
+            <p><strong>Last Updated:</strong> December 5, 2024</p>
+        </div>
+
+        <div class="section">
+            <h2>Your Consent</h2>
+            <p>By using the Application, you consent to the processing of information about you as described in this Privacy Policy and as permitted by applicable law.</p>
+        </div>
+
+        <div class="section">
+            <h2>Legal Basis for Processing (GDPR Compliance)</h2>
+            <p>For users in the European Economic Area (EEA):</p>
+            <ul>
+                <li><strong>Consent:</strong> By using the app and accepting this policy</li>
+                <li><strong>Legitimate Interest:</strong> To provide and improve our service</li>
+                <li><strong>Legal Obligation:</strong> To comply with applicable laws</li>
+            </ul>
+
+            <h3>Your GDPR Rights</h3>
+            <p>If you are in the EEA, you have the right to:</p>
+            <ul>
+                <li><strong>Access:</strong> Request what data we have about you</li>
+                <li><strong>Rectification:</strong> Request correction of inaccurate data</li>
+                <li><strong>Erasure:</strong> Request deletion of your data</li>
+                <li><strong>Portability:</strong> Request transfer of your data</li>
+                <li><strong>Object:</strong> Object to data processing</li>
+                <li><strong>Withdraw Consent:</strong> Withdraw consent at any time</li>
+            </ul>
+            <p>To exercise these rights, contact us at <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a>.</p>
+        </div>
+
+        <div class="section">
+            <h2>California Privacy Rights (CCPA Compliance)</h2>
+            <p>For California residents:</p>
+
+            <h3>Information We Collect</h3>
+            <p>None directly; third-party services may collect device and usage data</p>
+
+            <h3>How We Use Information</h3>
+            <ul>
+                <li>Analytics to improve the app</li>
+                <li>Advertising to provide free service</li>
+            </ul>
+
+            <h3>Your Rights</h3>
+            <ul>
+                <li><strong>Right to Know:</strong> Request information about data collection</li>
+                <li><strong>Right to Delete:</strong> Request deletion of data</li>
+                <li><strong>Right to Opt-Out:</strong> Opt-out of personalized advertising</li>
+            </ul>
+            <p>To exercise these rights, contact us at <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a>.</p>
+            <p><strong>We do not sell your personal information.</strong></p>
+        </div>
+
+        <div class="section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or concerns about this Privacy Policy or the Application's data practices, please contact us:</p>
+            <p>
+                <strong>Email:</strong> <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a><br>
+                <strong>Website:</strong> <a href="https://ramy-tawfik.github.io/smartatum-website/" target="_blank">https://ramy-tawfik.github.io/smartatum-website/</a>
+            </p>
+            <p>We will respond to your inquiry within 7 business days.</p>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <p style="text-align: center; color: #777; font-size: 0.9em;">
+                This privacy policy complies with Google Play Store requirements, GDPR, CCPA, and COPPA regulations.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
