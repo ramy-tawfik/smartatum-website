@@ -4,47 +4,666 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Atum Games</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #FFB800;
+      --gold-light: #FFD966;
+      --gold-dark: #CC9400;
+      --cyan: #00F0FF;
+      --cyan-dim: #00a8b3;
+      --bg-deep: #050510;
+      --bg-card: rgba(255, 184, 0, 0.04);
+      --glass-border: rgba(255, 184, 0, 0.15);
+      --text-primary: #f0ece4;
+      --text-muted: #8a8677;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── Animated background ── */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,184,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,184,0,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridPulse 8s ease-in-out infinite;
+    }
+    @keyframes gridPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    .bg-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(180px);
+      z-index: 0;
+      pointer-events: none;
+      animation: floatGlow 12s ease-in-out infinite;
+    }
+    .bg-glow--gold {
+      background: radial-gradient(circle, rgba(255,184,0,0.15), transparent 70%);
+      top: -200px;
+      left: -100px;
+    }
+    .bg-glow--cyan {
+      background: radial-gradient(circle, rgba(0,240,255,0.08), transparent 70%);
+      bottom: -200px;
+      right: -100px;
+      animation-delay: -6s;
+    }
+    @keyframes floatGlow {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(40px, 30px) scale(1.1); }
+      66% { transform: translate(-20px, -20px) scale(0.95); }
+    }
+
+    .content-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(5, 5, 16, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .nav-brand {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+      text-shadow: 0 0 20px rgba(255,184,0,0.4);
+    }
+
+    /* ── Hero Section ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.05;
+      margin-bottom: 8px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease forwards 0.4s;
+    }
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease forwards 0.6s;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 40px auto;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease forwards 0.8s;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease forwards 1s;
+    }
+    .hero-cta a {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .cta-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #0a0a0a;
+      box-shadow: 0 0 30px rgba(255,184,0,0.25);
+    }
+    .cta-primary:hover {
+      box-shadow: 0 0 50px rgba(255,184,0,0.5);
+      transform: translateY(-2px);
+    }
+    .cta-secondary {
+      border: 1px solid var(--glass-border);
+      color: var(--gold-light);
+      background: transparent;
+    }
+    .cta-secondary:hover {
+      border-color: var(--gold);
+      background: rgba(255,184,0,0.05);
+      box-shadow: 0 0 30px rgba(255,184,0,0.1);
+      transform: translateY(-2px);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease forwards 1.2s;
+    }
+    .scroll-indicator span {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: scaleY(1); opacity: 1; }
+      50% { transform: scaleY(0.5); opacity: 0.3; }
+    }
+
+    /* ── Section Styles ── */
+    .section {
+      padding: 100px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .section-tag {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--text-primary), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Game Cards ── */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    .game-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 32px;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .game-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .game-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,184,0,0.35);
+      box-shadow: 0 20px 60px rgba(255,184,0,0.08), 0 0 80px rgba(255,184,0,0.04);
+    }
+    .game-card:hover::before {
+      opacity: 1;
+    }
+
+    .game-card__badge {
+      display: inline-block;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .badge--investment {
+      background: rgba(0, 240, 255, 0.1);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 240, 255, 0.2);
+    }
+    .badge--simulation {
+      background: rgba(255, 184, 0, 0.1);
+      color: var(--gold-light);
+      border: 1px solid rgba(255, 184, 0, 0.2);
+    }
+
+    .game-card__title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    .game-card__desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .game-card__features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .feature-chip {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text-muted);
+    }
+
+    .game-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      width: 100%;
+      transition: all 0.3s;
+    }
+    .game-card__link:hover {
+      color: var(--gold-light);
+      text-shadow: 0 0 20px rgba(255,184,0,0.4);
+    }
+    .game-card__link svg {
+      transition: transform 0.3s;
+    }
+    .game-card__link:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ── About Section ── */
+    .about-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about-content p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .about-content .highlight {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--gold), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* ── Contact ── */
+    .contact-box {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 48px 40px;
+      backdrop-filter: blur(10px);
+    }
+    .contact-box p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .contact-email {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-decoration: none;
+      padding: 14px 28px;
+      border: 1px solid var(--glass-border);
+      border-radius: 4px;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    .contact-email:hover {
+      border-color: var(--gold);
+      box-shadow: 0 0 30px rgba(255,184,0,0.15);
+      background: rgba(255,184,0,0.05);
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid var(--glass-border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+    footer .footer-brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .games-grid { grid-template-columns: 1fr; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .stats-row { gap: 32px; }
+      .contact-box { padding: 32px 24px; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header / Hero Section -->
-  <header>
-    <img src="images/logo.png" alt="Smart Atum Logo" width="150">
-    <h1>Smart Atum</h1>
-    <p>Blending Ancient Wisdom & Modern Technology in Gaming</p>
-  </header>
-  <!-- Games Section -->
-  <section id="games">
-    <h2>Our Games</h2>
-  
-    <div class="game">
-      <h3>Hero Investor – The Billionaire Rise</h3>
-      <img src="images/hero-investor.png" alt="Hero Investor Screenshot">
-      <p>Build your empire and rise to billionaire status in this exciting investment game!</p>
-      <a href="https://play.google.com/store/apps/details?id=com.smartatum.investorhero" target="_blank">Download on Google Play</a>
-    </div>
-    <div class="game">
-      <h3>Dev Tycoon</h3>
-      <img src="images/devtycoon.webp" alt="Dev Tycoon Screenshot">
-      <p>Start as an indie developer, build software products, master your skills, and grow into the ultimate Dev Tycoon!</p>
-      <a href="https://play.google.com/store/apps/details?id=com.smartatum.devtycoon" target="_blank">Download on Google Play</a>
-    </div>
-  </section>
-<br></br>
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Smart Atum</h2>
-    <p>Smart Atum is inspired by the ancient Egyptian god Atum, combining creativity, technology, and gaming innovation. Our mission is to deliver fun and intelligent mobile games that excite and challenge players worldwide.</p>
-  </section>
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a></p>
-  </section>
-  <!-- Footer -->
-<footer>
-  <p>&copy; 2025 Smart Atum</p>
-</footer>
+
+  <!-- Background Effects -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow--gold"></div>
+  <div class="bg-glow bg-glow--cyan"></div>
+
+  <div class="content-wrap">
+
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-brand">Smart Atum</div>
+      <ul class="nav-links">
+        <li><a href="#games">Games</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-eyebrow">Independent Game Studio</div>
+      <h1 class="hero-title">
+        <span class="gradient-text">Smart Atum</span>
+      </h1>
+      <p class="hero-subtitle">Ancient wisdom meets modern technology. We craft immersive mobile games that challenge your mind and ignite your ambition.</p>
+      <div class="hero-divider"></div>
+      <div class="hero-cta">
+        <a href="#games" class="cta-primary">Explore Games</a>
+        <a href="#about" class="cta-secondary">Our Story</a>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Games -->
+    <section id="games" class="section">
+      <div class="section-header reveal">
+        <div class="section-tag">Portfolio</div>
+        <h2 class="section-title">Our Games</h2>
+      </div>
+
+      <div class="games-grid">
+        <!-- Hero Investor -->
+        <div class="game-card reveal">
+          <span class="game-card__badge badge--investment">Investment Sim</span>
+          <h3 class="game-card__title">Hero Investor</h3>
+          <p class="game-card__desc">Build your empire and rise to billionaire status. Trade stocks, invest in real estate, and navigate global markets in this deep investment simulation.</p>
+          <div class="game-card__features">
+            <span class="feature-chip">Stocks & ETFs</span>
+            <span class="feature-chip">Real Estate</span>
+            <span class="feature-chip">Banking</span>
+            <span class="feature-chip">Achievements</span>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.smartatum.investorhero" target="_blank" class="game-card__link">
+            Download on Google Play
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Dev Tycoon -->
+        <div class="game-card reveal">
+          <span class="game-card__badge badge--simulation">Business Tycoon</span>
+          <h3 class="game-card__title">Dev Tycoon</h3>
+          <p class="game-card__desc">Start as an indie developer, build software products, master your craft, and grow into the ultimate Dev Tycoon. Every decision shapes your empire.</p>
+          <div class="game-card__features">
+            <span class="feature-chip">Skill Tree</span>
+            <span class="feature-chip">Crypto Trading</span>
+            <span class="feature-chip">Contracts</span>
+            <span class="feature-chip">Publishers</span>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.smartatum.devtycoon" target="_blank" class="game-card__link">
+            Download on Google Play
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="section-header reveal">
+        <div class="section-tag">Our Story</div>
+        <h2 class="section-title">About Smart Atum</h2>
+      </div>
+      <div class="about-content reveal">
+        <p>Inspired by <span class="highlight">Atum</span>, the ancient Egyptian god of creation, Smart Atum blends timeless creativity with modern technology. We build mobile games that are <span class="highlight">intelligent, immersive, and rewarding</span> — designed to challenge players and spark ambition worldwide.</p>
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Games Published</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">4.3★</div>
+            <div class="stat-label">Average Rating</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Ambition</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="section-header reveal">
+        <div class="section-tag">Get in Touch</div>
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <div class="contact-box reveal">
+        <p>Have feedback, suggestions, or just want to say hello? We'd love to hear from you.</p>
+        <a href="mailto:smartatum@gmail.com" class="contact-email">smartatum@gmail.com</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-brand">Smart Atum</div>
+      <p>&copy; 2025 Smart Atum Games. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 120);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
