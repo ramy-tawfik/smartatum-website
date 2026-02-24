@@ -95,6 +95,9 @@
       border-bottom: 1px solid var(--glass-border);
     }
     .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-family: 'Orbitron', sans-serif;
       font-weight: 700;
       font-size: 1.1rem;
@@ -104,6 +107,20 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+    .hero-logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 0 40px rgba(255,184,0,0.2);
+      opacity: 0;
+      animation: fadeSlideUp 0.8s ease forwards 0.1s;
     }
     .nav-links {
       display: flex;
@@ -316,6 +333,15 @@
     }
     .game-card:hover::before {
       opacity: 1;
+    }
+
+    .game-card__icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .game-card__badge {
@@ -534,7 +560,10 @@
 
     <!-- Navigation -->
     <nav>
-      <div class="nav-brand">Smart Atum</div>
+      <div class="nav-brand">
+        <img src="images/logo.png" alt="Smart Atum" class="nav-logo">
+        Smart Atum
+      </div>
       <ul class="nav-links">
         <li><a href="#games">Games</a></li>
         <li><a href="#about">About</a></li>
@@ -544,6 +573,7 @@
 
     <!-- Hero -->
     <section class="hero">
+      <img src="images/logo.png" alt="Smart Atum" class="hero-logo">
       <div class="hero-eyebrow">Independent Game Studio</div>
       <h1 class="hero-title">
         <span class="gradient-text">Smart Atum</span>
@@ -570,6 +600,7 @@
       <div class="games-grid">
         <!-- Hero Investor -->
         <div class="game-card reveal">
+          <img src="images/hero-investor.png" alt="Hero Investor" class="game-card__icon">
           <span class="game-card__badge badge--investment">Investment Sim</span>
           <h3 class="game-card__title">Hero Investor</h3>
           <p class="game-card__desc">Build your empire and rise to billionaire status. Trade stocks, invest in real estate, and navigate global markets in this deep investment simulation.</p>
@@ -587,6 +618,7 @@
 
         <!-- Dev Tycoon -->
         <div class="game-card reveal">
+          <img src="images/devtycoon.webp" alt="Dev Tycoon" class="game-card__icon">
           <span class="game-card__badge badge--simulation">Business Tycoon</span>
           <h3 class="game-card__title">Dev Tycoon</h3>
           <p class="game-card__desc">Start as an indie developer, build software products, master your craft, and grow into the ultimate Dev Tycoon. Every decision shapes your empire.</p>
