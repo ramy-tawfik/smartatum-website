@@ -93,6 +93,13 @@
       background: rgba(5, 5, 16, 0.8);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--glass-border);
+      transition: padding 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+    }
+    nav.scrolled {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background: rgba(5, 5, 16, 0.95);
+      border-bottom-color: rgba(255,184,0,0.25);
     }
     .nav-brand {
       display: flex;
@@ -175,10 +182,17 @@
       animation: fadeSlideUp 0.8s ease forwards 0.4s;
     }
     .hero-title .gradient-text {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--cyan));
+      background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--cyan), var(--gold-light), var(--gold));
+      background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: gradientShift 6s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .hero-subtitle {
@@ -301,8 +315,9 @@
     /* Game Cards */
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 32px;
+      perspective: 1200px;
     }
 
     .game-card {
@@ -311,9 +326,27 @@
       border-radius: 16px;
       padding: 32px;
       backdrop-filter: blur(10px);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
       position: relative;
       overflow: hidden;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    /* Shine sweep on hover */
+    .game-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 80%;
+      height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.06), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.7s ease;
+      pointer-events: none;
+    }
+    .game-card:hover::after {
+      left: 150%;
     }
     .game-card::before {
       content: '';
@@ -355,6 +388,11 @@
       margin-bottom: 20px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
       border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+    }
+    .game-card:hover .game-card__icon {
+      transform: scale(1.08) translateZ(30px);
+      box-shadow: 0 8px 30px rgba(255,184,0,0.25);
     }
 
     /* Placeholder icon for unreleased games */
@@ -593,6 +631,9 @@
     }
 
     /* Responsive */
+    @media (max-width: 900px) {
+      .games-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
@@ -600,6 +641,16 @@
       .hero-cta { flex-direction: column; align-items: center; }
       .stats-row { gap: 32px; }
       .contact-box { padding: 32px 24px; }
+    }
+
+    /* Accessibility: respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001s !important;
+      }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -732,11 +783,11 @@
         <p>Inspired by <span class="highlight">Atum</span>, the ancient Egyptian god of creation, Smart Atum blends timeless creativity with modern technology. We build mobile games that are <span class="highlight">intelligent, immersive, and rewarding</span> — designed to challenge players and spark ambition worldwide.</p>
         <div class="stats-row">
           <div class="stat">
-            <div class="stat-number">2</div>
+            <div class="stat-number" data-count="2">0</div>
             <div class="stat-label">Games Published</div>
           </div>
           <div class="stat">
-            <div class="stat-number">2</div>
+            <div class="stat-number" data-count="2">0</div>
             <div class="stat-label">In Development</div>
           </div>
           <div class="stat">
@@ -771,20 +822,63 @@
 
   </div>
 
-  <!-- Scroll Reveal Script -->
+  <!-- Interaction Script -->
   <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, i * 120);
+          setTimeout(() => entry.target.classList.add('visible'), i * 120);
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15 });
     revealEls.forEach(el => observer.observe(el));
+
+    // Count-up animation for stats
+    const counters = document.querySelectorAll('.stat-number[data-count]');
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-count'), 10);
+        if (reduceMotion) { el.textContent = target; countObserver.unobserve(el); return; }
+        let current = 0;
+        const step = Math.max(1, Math.ceil(target / 30));
+        const tick = () => {
+          current += step;
+          if (current >= target) { el.textContent = target; }
+          else { el.textContent = current; requestAnimationFrame(tick); }
+        };
+        tick();
+        countObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => countObserver.observe(el));
+
+    // Nav background on scroll
+    const navEl = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      navEl.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // 3D tilt on game cards (skipped if reduced motion or touch)
+    if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+      document.querySelectorAll('.game-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          card.style.transform = `translateY(-8px) rotateX(${(-py * 6).toFixed(2)}deg) rotateY(${(px * 6).toFixed(2)}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    }
   </script>
 
 </body>
