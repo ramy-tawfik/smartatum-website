@@ -181,19 +181,18 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
 
-    /* ---------- BENTO GAME GRID (full-image cards) ---------- */
+    /* ---------- GAME GRID (equal-size cards) ---------- */
     .games-grid {
-      display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+      perspective: 1200px;
     }
-    .gc { grid-column: span 6; }      /* default half width */
-    .gc--wide { grid-column: span 7; }
-    .gc--narrow { grid-column: span 5; }
 
     .game-card {
       position: relative; overflow: hidden; border-radius: 16px;
       border: 1px solid var(--glass-border);
-      min-height: 380px; display: flex; flex-direction: column; justify-content: flex-end;
+      min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end;
       padding: 32px;
+      transform-style: preserve-3d; will-change: transform;
       transition: transform .5s cubic-bezier(0.16,1,0.3,1), border-color .5s, box-shadow .5s;
     }
     .game-card__bg {
@@ -204,9 +203,16 @@
     .game-card:hover .game-card__bg { transform: scale(1.08); }
     .game-card__overlay {
       position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(to top, var(--bg-deep) 8%, rgba(5,5,16,0.55) 45%, rgba(5,5,16,0.15) 100%);
+      background: linear-gradient(to top, var(--bg-deep) 18%, rgba(5,5,16,0.78) 42%, rgba(5,5,16,0.25) 72%, rgba(5,5,16,0.05) 100%);
     }
-    .game-card > * { position: relative; z-index: 2; }
+    .game-card > *:not(.game-card__bg):not(.game-card__overlay) { position: relative; z-index: 2; }
+    /* shine sweep */
+    .game-card::after {
+      content: ''; position: absolute; top: 0; left: -150%; width: 80%; height: 100%; z-index: 3;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.08), transparent);
+      transform: skewX(-20deg); transition: left .7s ease; pointer-events: none;
+    }
+    .game-card:hover::after { left: 150%; }
     .game-card:hover { transform: translateY(-6px); border-color: rgba(255,184,0,0.4); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
     .game-card--soon { border-style: dashed; border-color: rgba(0,240,255,0.25); }
     .game-card--soon:hover { border-color: rgba(0,240,255,0.5); }
@@ -293,7 +299,7 @@
       .hero-visual { order: -1; }
       .hero-cta { justify-content: center; }
       .stats-inner { grid-template-columns: 1fr; gap: 28px; }
-      .gc, .gc--wide, .gc--narrow { grid-column: span 12; }
+      .games-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
@@ -378,7 +384,7 @@
 
       <div class="games-grid">
         <!-- Hero Investor (wide) -->
-        <div class="gc gc--wide reveal">
+        <div class="reveal">
           <div class="game-card">
             <div class="game-card__bg" style="background-image:url('images/hero-investor.png')"></div>
             <div class="game-card__overlay"></div>
@@ -403,7 +409,7 @@
         </div>
 
         <!-- Dev Tycoon (narrow) -->
-        <div class="gc gc--narrow reveal">
+        <div class="reveal">
           <div class="game-card">
             <div class="game-card__bg" style="background-image:url('images/devTycoon.jpeg')"></div>
             <div class="game-card__overlay"></div>
@@ -426,7 +432,7 @@
         </div>
 
         <!-- StreamLord (half) -->
-        <div class="gc reveal">
+        <div class="reveal">
           <div class="game-card game-card--soon">
             <div class="game-card__bg" style="background-image:url('images/A_high-quality_3D_matte_clay_202605071520.png')"></div>
             <div class="game-card__overlay"></div>
@@ -446,7 +452,7 @@
         </div>
 
         <!-- Music Career Tycoon (half) -->
-        <div class="gc reveal">
+        <div class="reveal">
           <div class="game-card game-card--soon">
             <div class="game-card__bg" style="background-image:url('images/Google Play Games on PC logo.png')"></div>
             <div class="game-card__overlay"></div>
@@ -543,6 +549,19 @@
     window.addEventListener('scroll', () => {
       navEl.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
+
+    // 3D tilt on game cards (desktop, motion-OK only)
+    if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+      document.querySelectorAll('.game-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          card.style.transform = `translateY(-6px) rotateX(${(-py*5).toFixed(2)}deg) rotateY(${(px*5).toFixed(2)}deg)`;
+        });
+        card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+      });
+    }
   </script>
 
 </body>
