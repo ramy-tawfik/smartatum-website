@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claim Your Promo Code — Smart Atum</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #FFB800;
+    --gold-light: #FFD966;
+    --gold-dark: #CC9400;
+    --cyan: #00F0FF;
+    --bg-deep: #050510;
+    --bg-card: rgba(255, 184, 0, 0.04);
+    --glass-border: rgba(255, 184, 0, 0.15);
+    --text-primary: #f0ece4;
+    --text-muted: #8a8677;
+    --error: #ff5566;
+    --success: #4be3a0;
+  }
+
+  body {
+    font-family: 'Exo 2', sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-grid {
+    position: fixed; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,184,0,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,184,0,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .bg-glow {
+    position: fixed; width: 500px; height: 500px; border-radius: 50%;
+    filter: blur(160px); z-index: 0; pointer-events: none;
+    background: radial-gradient(circle, rgba(255,184,0,0.15), transparent 70%);
+    top: -150px; left: -100px;
+  }
+
+  .card {
+    position: relative; z-index: 1;
+    width: 100%; max-width: 420px;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 44px 36px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+  }
+
+  .brand {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 3px; text-transform: uppercase;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem; font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    color: var(--text-muted); font-size: 0.9rem; font-weight: 300;
+    margin-bottom: 30px; line-height: 1.6;
+  }
+
+  input {
+    width: 100%; padding: 14px 16px; font-size: 15px;
+    letter-spacing: 1px; text-transform: uppercase;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: 'Exo 2', sans-serif;
+    outline: none;
+    transition: border-color .3s, box-shadow .3s;
+  }
+  input:focus { border-color: var(--gold); box-shadow: 0 0 20px rgba(255,184,0,0.15); }
+  input::placeholder { color: #55524a; letter-spacing: 0.5px; }
+
+  button {
+    width: 100%; margin-top: 14px; padding: 14px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #0a0a0a; border: none; border-radius: 8px; cursor: pointer;
+    box-shadow: 0 0 30px rgba(255,184,0,0.2);
+    transition: box-shadow .3s, transform .3s;
+  }
+  button:hover:not(:disabled) { box-shadow: 0 0 45px rgba(255,184,0,0.4); transform: translateY(-2px); }
+  button:disabled { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
+
+  .result { margin-top: 24px; font-size: 0.9rem; min-height: 20px; }
+  .result.error { color: var(--error); }
+  .result.success { color: var(--success); }
+
+  .code-box {
+    margin-top: 12px; padding: 14px;
+    background: rgba(0,240,255,0.06);
+    border: 1px solid rgba(0,240,255,0.3);
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 16px; letter-spacing: 1px;
+    color: var(--cyan);
+    word-break: break-all;
+  }
+
+  footer { margin-top: 26px; font-size: 0.75rem; color: #4a4740; }
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<div class="card">
+  <div class="brand">Smart Atum</div>
+  <h1>Claim Your Promo Code</h1>
+  <p class="subtitle">Enter the claim code you were given to reveal your reward.</p>
+
+  <input id="input" placeholder="e.g. WIN-B1BD63" maxlength="20">
+  <button id="btn">Claim</button>
+
+  <div id="result" class="result"></div>
+
+  <footer>Each claim code can be redeemed once.</footer>
+</div>
+
+<script>
+// Set this to your deployed Worker URL, e.g. https://promo-claim.yourname.workers.dev
+const WORKER_URL = "https://promo-claim.YOUR-SUBDOMAIN.workers.dev";
+
+const input = document.getElementById('input');
+const btn = document.getElementById('btn');
+const result = document.getElementById('result');
+
+btn.addEventListener('click', async () => {
+  const code = input.value.trim().toUpperCase();
+  result.className = 'result';
+  result.innerHTML = '';
+
+  if (!code) return;
+
+  btn.disabled = true;
+  btn.textContent = 'Checking...';
+
+  try {
+    const res = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code }),
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      result.classList.add('error');
+      result.textContent = data.error || 'Something went wrong.';
+      btn.disabled = false;
+      btn.textContent = 'Claim';
+      return;
+    }
+
+    result.classList.add('success');
+    result.innerHTML = 'Your promo code:<div class="code-box">' + data.promoCode + '</div>';
+    btn.textContent = 'Claimed';
+  } catch (e) {
+    result.classList.add('error');
+    result.textContent = 'Network error, try again.';
+    btn.disabled = false;
+    btn.textContent = 'Claim';
+  }
+});
+
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') btn.click();
+});
+</script>
+
+</body>
+</html>
