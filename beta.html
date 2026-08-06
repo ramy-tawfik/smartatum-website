@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apply to join the Hero Investor PC closed beta and help Smart Atum test the Windows version before release.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://smartatum.com/beta">
+
+  <meta property="og:title" content="Hero Investor PC — Closed Beta">
+  <meta property="og:description" content="Help shape Hero Investor PC. Apply for the private Windows closed beta from Smart Atum.">
+  <meta property="og:image" content="https://smartatum.com/images/hero-investor-pc-main-capsule-right.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://smartatum.com/beta">
+  <meta property="og:site_name" content="Smart Atum">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hero Investor PC — Closed Beta">
+  <meta name="twitter:description" content="Help shape Hero Investor PC. Apply for the private Windows closed beta.">
+  <meta name="twitter:image" content="https://smartatum.com/images/hero-investor-pc-main-capsule-right.png">
+
+  <title>Hero Investor PC — Closed Beta | Smart Atum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #03050a;
+      --ink-soft: #07101d;
+      --panel: #0a1526;
+      --panel-bright: #0e1d32;
+      --paper: #f4efe3;
+      --muted: #9aa7bf;
+      --cyan: #00e7ff;
+      --cyan-soft: rgba(0, 231, 255, 0.13);
+      --gold: #fbc638;
+      --green: #43ef95;
+      --line: rgba(90, 201, 255, 0.23);
+      --shell: min(1180px, calc(100vw - 48px));
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--paper);
+      background: var(--ink);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(circle at 78% 3%, rgba(0, 141, 255, 0.22), transparent 32rem),
+        radial-gradient(circle at 11% 26%, rgba(251, 198, 56, 0.09), transparent 24rem),
+        linear-gradient(180deg, #03050a 0%, #050c17 48%, #03050a 100%);
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.34;
+      background-image:
+        linear-gradient(rgba(0, 231, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 231, 255, 0.055) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 88%);
+    }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+    :focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+
+    .scanline {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      pointer-events: none;
+      opacity: 0.05;
+      background: repeating-linear-gradient(to bottom, transparent 0 3px, #fff 4px);
+    }
+    .shell { width: var(--shell); margin-inline: auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(3, 5, 10, 0.86);
+      backdrop-filter: blur(22px);
+    }
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+    }
+    .brand img {
+      width: 34px;
+      height: 34px;
+      object-fit: cover;
+      border-radius: 6px;
+      clip-path: polygon(0 0, 100% 0, 100% 78%, 78% 100%, 0 100%);
+    }
+    .brand span {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 180ms ease;
+    }
+    .nav-links a:hover { color: var(--paper); }
+    .nav-links .nav-cta { color: var(--cyan); }
+
+    .hero { padding: 72px 0 52px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(380px, 0.95fr);
+      gap: 56px;
+      align-items: center;
+    }
+    .eyebrow,
+    .section-kicker,
+    .terminal-label {
+      font-family: "DM Mono", monospace;
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: var(--cyan);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(67, 239, 149, 0.1), 0 0 18px rgba(67, 239, 149, 0.7);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(3.35rem, 7.2vw, 6.8rem);
+      line-height: 0.88;
+      letter-spacing: -0.07em;
+    }
+    h1 span { color: var(--gold); }
+    .hero-copy {
+      max-width: 650px;
+      margin: 28px 0 0;
+      color: #b8c5db;
+      font-size: clamp(1.04rem, 1.5vw, 1.24rem);
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-top: 32px;
+    }
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 22px;
+      border: 1px solid var(--cyan);
+      color: #001018;
+      background: var(--cyan);
+      font-weight: 700;
+      letter-spacing: 0.035em;
+      text-decoration: none;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 35px rgba(0, 231, 255, 0.24);
+      background: #64f2ff;
+    }
+    .button--quiet {
+      color: var(--paper);
+      background: rgba(7, 16, 29, 0.72);
+      border-color: var(--line);
+    }
+    .button--quiet:hover { background: var(--panel-bright); }
+    .hero-meta {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      color: var(--muted);
+      font-family: "DM Mono", monospace;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+    .hero-meta span::before { content: "// "; color: var(--gold); }
+
+    .art-terminal {
+      position: relative;
+      isolation: isolate;
+    }
+    .art-terminal::before {
+      content: "";
+      position: absolute;
+      inset: -20px;
+      z-index: -1;
+      border: 1px solid rgba(0, 231, 255, 0.16);
+      clip-path: polygon(0 0, 92% 0, 100% 10%, 100% 100%, 8% 100%, 0 90%);
+    }
+    .art-frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0, 231, 255, 0.44);
+      background: #02060d;
+      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.48), 0 0 55px rgba(0, 110, 255, 0.1);
+      clip-path: polygon(0 0, 88% 0, 100% 12%, 100% 100%, 0 100%);
+    }
+    .art-frame img {
+      width: 100%;
+      aspect-ratio: 1.74 / 1;
+      object-fit: cover;
+      object-position: center;
+    }
+    .art-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 58%, rgba(1, 7, 15, 0.78));
+      pointer-events: none;
+    }
+    .terminal-top,
+    .terminal-bottom {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      font-family: "DM Mono", monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .terminal-top { top: 14px; color: #d6e5f7; }
+    .terminal-bottom { bottom: 14px; color: var(--cyan); }
+    .readout {
+      padding: 7px 9px;
+      border: 1px solid rgba(0, 231, 255, 0.34);
+      background: rgba(2, 8, 17, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    .signal {
+      display: inline-flex;
+      align-items: end;
+      gap: 3px;
+      height: 19px;
+    }
+    .signal i {
+      width: 3px;
+      background: var(--green);
+      box-shadow: 0 0 8px rgba(67, 239, 149, 0.75);
+      animation: equalize 1.2s ease-in-out infinite alternate;
+    }
+    .signal i:nth-child(1) { height: 6px; }
+    .signal i:nth-child(2) { height: 12px; animation-delay: -0.4s; }
+    .signal i:nth-child(3) { height: 18px; animation-delay: -0.7s; }
+    .signal i:nth-child(4) { height: 10px; animation-delay: -0.2s; }
+
+    .briefing {
+      margin-top: 38px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(6, 16, 29, 0.72);
+    }
+    .briefing-grid {
+      min-height: 112px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .briefing-item {
+      position: relative;
+      padding: 25px 28px;
+      border-right: 1px solid var(--line);
+    }
+    .briefing-item:last-child { border-right: 0; }
+    .briefing-item strong {
+      display: block;
+      margin-top: 9px;
+      font-size: 1.02rem;
+    }
+    .briefing-item .terminal-label { color: var(--muted); }
+    .briefing-item:first-child .terminal-label { color: var(--green); }
+
+    .section { padding: 108px 0; }
+    .section-kicker { color: var(--cyan); }
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.58fr);
+      gap: 70px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+    .section-heading h2 {
+      margin: 12px 0 0;
+      max-width: 720px;
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      border: 1px solid var(--line);
+      background: rgba(6, 14, 26, 0.66);
+    }
+    .mission-list { padding: 16px 36px; }
+    .mission {
+      display: grid;
+      grid-template-columns: 68px 1fr;
+      gap: 22px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .mission:last-child { border-bottom: 0; }
+    .mission-number {
+      color: var(--gold);
+      font-family: "DM Mono", monospace;
+      font-size: 1.04rem;
+    }
+    .mission h3 { margin: 0 0 7px; font-size: 1.15rem; }
+    .mission p { margin: 0; color: var(--muted); line-height: 1.62; }
+    .candidate-rail {
+      position: relative;
+      padding: 42px;
+      overflow: hidden;
+      border-left: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(0, 231, 255, 0.1), transparent 48%),
+        var(--ink-soft);
+    }
+    .candidate-rail::after {
+      content: "";
+      position: absolute;
+      right: -58px;
+      bottom: -74px;
+      width: 240px;
+      height: 240px;
+      border: 1px solid rgba(0, 231, 255, 0.2);
+      transform: rotate(45deg);
+    }
+    .candidate-rail h3 {
+      margin: 12px 0 24px;
+      font-size: 1.65rem;
+    }
+    .checklist { list-style: none; margin: 0; padding: 0; }
+    .checklist li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 12px;
+      padding: 13px 0;
+      color: #c9d5e8;
+      border-bottom: 1px solid rgba(90, 201, 255, 0.12);
+    }
+    .checklist li::before {
+      content: "✓";
+      color: var(--green);
+      font-family: "DM Mono", monospace;
+      font-weight: 700;
+    }
+    .rail-note {
+      position: relative;
+      z-index: 1;
+      margin: 28px 0 0;
+      padding: 16px;
+      border-left: 2px solid var(--gold);
+      color: var(--muted);
+      background: rgba(251, 198, 56, 0.055);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .process { background: linear-gradient(180deg, transparent, rgba(0, 145, 255, 0.045), transparent); }
+    .process-line {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      counter-reset: step;
+    }
+    .process-step {
+      position: relative;
+      min-height: 228px;
+      padding: 30px 32px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      counter-increment: step;
+    }
+    .process-step:first-child { border-left: 1px solid var(--line); }
+    .process-step::before {
+      content: "0" counter(step);
+      display: block;
+      margin-bottom: 42px;
+      color: var(--cyan);
+      font-family: "DM Mono", monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+    }
+    .process-step::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--cyan);
+      transition: width 350ms ease;
+    }
+    .process-step:hover::after { width: 100%; }
+    .process-step h3 { margin: 0 0 10px; font-size: 1.3rem; }
+    .process-step p { margin: 0; color: var(--muted); line-height: 1.65; }
+
+    .apply { padding-top: 72px; }
+    .apply-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0, 231, 255, 0.42);
+      background: #07111f;
+      box-shadow: 0 40px 110px rgba(0, 0, 0, 0.44);
+    }
+    .apply-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: linear-gradient(var(--cyan), #086cff, var(--gold));
+    }
+    .apply-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: 36px 42px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, rgba(0, 231, 255, 0.08), transparent);
+    }
+    .apply-header h2 {
+      margin: 8px 0 8px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -0.045em;
+    }
+    .apply-header p { margin: 0; color: var(--muted); line-height: 1.6; }
+    .secure-tag {
+      min-width: 168px;
+      padding: 14px 16px;
+      border: 1px solid rgba(67, 239, 149, 0.4);
+      color: var(--green);
+      background: rgba(67, 239, 149, 0.07);
+      font-family: "DM Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .application-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(310px, 0.75fr);
+      gap: 1px;
+      background: var(--line);
+    }
+    .application-copy,
+    .application-data {
+      padding: 42px;
+      background: var(--ink-soft);
+    }
+    .application-copy h3,
+    .application-data h3 {
+      margin: 0 0 14px;
+      font-size: 1.3rem;
+    }
+    .application-copy p,
+    .application-data p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .application-copy .button {
+      margin-top: 28px;
+      background: var(--paper);
+      border-color: var(--paper);
+      color: #07111f;
+    }
+    .application-copy .button:hover {
+      background: #fff;
+      box-shadow: 0 10px 35px rgba(244, 239, 227, 0.18);
+    }
+    .destination {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      color: var(--green);
+      font-family: "DM Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .destination::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(67, 239, 149, 0.55);
+    }
+    .data-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .data-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(90, 201, 255, 0.12);
+      color: #c9d5e8;
+    }
+    .data-list li:last-child { border-bottom: 0; }
+    .trust-line {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border-top: 1px solid var(--line);
+      background: var(--line);
+    }
+    .trust-item {
+      padding: 20px 24px;
+      color: var(--muted);
+      background: #07111f;
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+    .trust-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--paper);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+    .faq-item { padding: 30px; background: var(--ink-soft); }
+    .faq-item h3 { margin: 0 0 10px; font-size: 1.08rem; }
+    .faq-item p { margin: 0; color: var(--muted); line-height: 1.65; }
+
+    footer {
+      margin-top: 100px;
+      border-top: 1px solid var(--line);
+      background: rgba(3, 5, 10, 0.76);
+    }
+    .footer-inner {
+      min-height: 104px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 22px; }
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--paper); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 620ms ease, transform 620ms ease;
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    @keyframes pulse {
+      50% { opacity: 0.48; box-shadow: 0 0 0 11px rgba(67, 239, 149, 0.025), 0 0 10px rgba(67, 239, 149, 0.42); }
+    }
+    @keyframes equalize { to { transform: scaleY(0.4); transform-origin: bottom; } }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .section-heading,
+      .mission-grid,
+      .application-layout { grid-template-columns: 1fr; }
+      .hero-grid { gap: 54px; }
+      .section-heading { gap: 20px; }
+      .candidate-rail { border-top: 1px solid var(--line); border-left: 0; }
+      .briefing-grid { grid-template-columns: repeat(2, 1fr); }
+      .briefing-item:nth-child(2) { border-right: 0; }
+      .briefing-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .process-line { grid-template-columns: 1fr; }
+      .process-step { min-height: auto; border-left: 1px solid var(--line); border-bottom: 0; }
+      .process-step:last-child { border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 640px) {
+      :root { --shell: min(100% - 28px, 1180px); }
+      .nav { min-height: 64px; }
+      .brand span { font-size: 0.78rem; }
+      .nav-links li:first-child { display: none; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 0.72rem; }
+      .hero { padding-top: 52px; }
+      h1 { font-size: clamp(3.15rem, 17vw, 5rem); }
+      .hero-actions { align-items: stretch; }
+      .button { width: 100%; }
+      .art-terminal::before { inset: -9px; }
+      .terminal-top span:last-child { display: none; }
+      .briefing-grid { grid-template-columns: 1fr; }
+      .briefing-item { border-right: 0; border-bottom: 1px solid var(--line); }
+      .briefing-item:last-child { border-bottom: 0; }
+      .section { padding: 78px 0; }
+      .mission-list { padding: 8px 22px; }
+      .mission { grid-template-columns: 42px 1fr; gap: 12px; }
+      .candidate-rail { padding: 30px 24px; }
+      .apply-header { grid-template-columns: 1fr; padding: 28px 24px; }
+      .secure-tag { justify-self: start; }
+      .application-copy,
+      .application-data { padding: 30px 24px; }
+      .trust-line { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .footer-inner { padding: 28px 0; align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scanline" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Primary navigation">
+      <a class="brand" href="/" aria-label="Smart Atum home">
+        <img src="/images/logo.png" alt="">
+        <span>Smart Atum</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#pc">Studio games</a></li>
+        <li><a class="nav-cta" href="#application">Application details ↓</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid shell">
+        <div class="reveal">
+          <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Closed beta recruitment · Windows PC</div>
+          <h1>Help shape the next <span>market move.</span></h1>
+          <p class="hero-copy">Hero Investor is coming to PC with a purpose-built interface, deeper strategy, and long-form progression. Join a small group of testers and help us turn a promising build into a game players can trust.</p>
+          <div class="hero-actions">
+            <a class="button" href="#application">View application details <span aria-hidden="true">↓</span></a>
+            <a class="button button--quiet" href="#mission">Read the test brief</a>
+          </div>
+          <div class="hero-meta" aria-label="Beta details">
+            <span>Official Smart Atum test</span>
+            <span>Windows 10 / 11</span>
+            <span>No purchase required</span>
+          </div>
+        </div>
+
+        <div class="art-terminal reveal" aria-label="Hero Investor PC artwork">
+          <div class="art-frame">
+            <img src="/images/hero-investor-pc-main-capsule-right.png" alt="Hero Investor command center overlooking a futuristic city">
+            <div class="terminal-top"><span class="readout">Development preview // PC</span><span>Smart Atum Games</span></div>
+            <div class="terminal-bottom"><span>Recruitment open</span><span class="signal" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="briefing">
+        <div class="briefing-grid shell">
+          <div class="briefing-item"><span class="terminal-label">Status</span><strong>Recruiting testers</strong></div>
+          <div class="briefing-item"><span class="terminal-label">Platform</span><strong>Windows PC via Steam</strong></div>
+          <div class="briefing-item"><span class="terminal-label">Focus</span><strong>Gameplay, UI &amp; stability</strong></div>
+          <div class="briefing-item"><span class="terminal-label">Studio</span><strong>Smart Atum</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="mission">
+      <div class="section-heading reveal">
+        <div>
+          <div class="section-kicker">The testing mandate</div>
+          <h2>Play like an investor. Think like a developer.</h2>
+        </div>
+        <p>This is an active development build, not a polished demo. We are looking for thoughtful players who can explore the systems, notice friction, and explain what happened clearly.</p>
+      </div>
+
+      <div class="mission-grid reveal">
+        <div class="mission-list">
+          <article class="mission">
+            <div class="mission-number">01</div>
+            <div><h3>Stress the strategy</h3><p>Build companies, trade assets, research upgrades, manage property, and look for choices that feel unclear or unbalanced.</p></div>
+          </article>
+          <article class="mission">
+            <div class="mission-number">02</div>
+            <div><h3>Challenge the interface</h3><p>Test different resolutions and display scaling. Report clipped text, confusing flows, input problems, and anything that breaks immersion.</p></div>
+          </article>
+          <article class="mission">
+            <div class="mission-number">03</div>
+            <div><h3>Send useful evidence</h3><p>When something goes wrong, share the steps, a screenshot or recording when possible, and the logs requested by the test team.</p></div>
+          </article>
+        </div>
+
+        <aside class="candidate-rail">
+          <div class="terminal-label">Candidate profile</div>
+          <h3>You may be a good fit if…</h3>
+          <ul class="checklist">
+            <li>You enjoy strategy, tycoon, finance, or management games.</li>
+            <li>You can test on a Windows 10 or Windows 11 PC.</li>
+            <li>You are comfortable joining the test Discord channel.</li>
+            <li>You can describe bugs respectfully and with useful detail.</li>
+            <li>You understand that saves and features may change during beta.</li>
+          </ul>
+          <p class="rail-note">Closed beta access is limited. Applying does not guarantee selection, and selected testers may receive access in waves.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section process">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div>
+            <div class="section-kicker">Participation sequence</div>
+            <h2>Three steps to join the test.</h2>
+          </div>
+          <p>We keep the process simple so selected testers can spend their time playing, not fighting setup.</p>
+        </div>
+        <div class="process-line reveal">
+          <article class="process-step"><h3>Apply</h3><p>Tell us about your PC, your gaming experience, and the areas you are most interested in testing.</p></article>
+          <article class="process-step"><h3>Get selected</h3><p>Applications are reviewed in waves. Selected testers receive instructions through Discord.</p></article>
+          <article class="process-step"><h3>Receive test instructions</h3><p>Selected participants receive official instructions through the private Discord test channel, then play and report their findings.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section apply shell" id="application">
+      <div class="apply-panel reveal">
+        <div class="apply-header">
+          <div>
+            <div class="section-kicker">Official application</div>
+            <h2>Apply on Google Forms.</h2>
+            <p>Smart Atum hosts the beta information on this website. The application itself opens separately on the official Google Forms website.</p>
+          </div>
+          <div class="secure-tag">External destination<br>docs.google.com</div>
+        </div>
+        <div class="application-layout">
+          <div class="application-copy">
+            <h3>Continue to the application</h3>
+            <p>The button below leaves smartatum.com and opens the Hero Investor PC application directly on Google Forms. This website only provides information and does not collect responses or process purchases.</p>
+            <a
+              class="button"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSea4g5j0japPJOhFlbEXtM9HgEBE09nZyDlTFMUeH9QS6makg/viewform"
+              target="_blank"
+              rel="noopener noreferrer nofollow">Open application on Google Forms <span aria-hidden="true">↗</span></a>
+            <div class="destination">Destination: docs.google.com</div>
+          </div>
+          <aside class="application-data" aria-label="Information requested by the application">
+            <h3>What the application asks for</h3>
+            <p>Only information needed to select and coordinate PC testers:</p>
+            <ul class="data-list">
+              <li>Discord username and time zone</li>
+              <li>Windows PC specifications</li>
+              <li>Testing availability and interests</li>
+              <li>Relevant strategy-game experience</li>
+            </ul>
+          </aside>
+        </div>
+        <div class="trust-line" aria-label="Application safety information">
+          <div class="trust-item"><strong>No files provided</strong>This page contains information and one external application link.</div>
+          <div class="trust-item"><strong>No payment</strong>Applying and participating in the closed beta are free.</div>
+          <div class="trust-item"><strong>Questions?</strong>Contact <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a>.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="faq-title">
+      <div class="section-heading reveal">
+        <div>
+          <div class="section-kicker">Before you apply</div>
+          <h2 id="faq-title">The important details.</h2>
+        </div>
+      </div>
+      <div class="faq-grid reveal">
+        <article class="faq-item"><h3>Is the beta free?</h3><p>Yes. There is no charge to apply or participate in this private development test.</p></article>
+        <article class="faq-item"><h3>Do I need the Android game?</h3><p>No. The PC version is being developed as its own Windows experience, and new testers can start fresh.</p></article>
+        <article class="faq-item"><h3>Will my progress be permanent?</h3><p>Not necessarily. Test saves may be reset or become incompatible as systems change during development.</p></article>
+        <article class="faq-item"><h3>How will I hear back?</h3><p>Selected testers will be contacted through the Discord information provided in the application.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner shell">
+      <span>© <span id="year">2026</span> Smart Atum Games.</span>
+      <span class="footer-links">
+        <a href="/">Studio home</a>
+        <a href="/privacy.html">Privacy policy</a>
+        <a href="mailto:smartatum@gmail.com">Contact</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
