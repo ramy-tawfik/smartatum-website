@@ -361,6 +361,18 @@
       clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
     }
     .card-link:hover { color: #000; border-color: var(--cyan); background: var(--cyan); box-shadow: 0 0 15px rgba(0, 240, 255, 0.5); }
+    .card-link--wishlist {
+      color: #fff;
+      border-color: #66c0f4;
+      background: linear-gradient(135deg, rgba(27, 91, 135, 0.92), rgba(20, 55, 84, 0.96));
+      box-shadow: 0 0 18px rgba(102, 192, 244, 0.2);
+    }
+    .card-link--wishlist:hover {
+      color: #07111d;
+      border-color: #a4d7f5;
+      background: #a4d7f5;
+      box-shadow: 0 0 22px rgba(102, 192, 244, 0.55);
+    }
     .card-link.is-planned { cursor: default; color: var(--muted); border-color: rgba(170, 180, 199, 0.3); background: rgba(6, 9, 20, 0.5); }
     .card-link.is-planned:hover { color: var(--paper); background: rgba(170, 180, 199, 0.1); border-color: rgba(170, 180, 199, 0.5); box-shadow:none; }
 
@@ -603,12 +615,12 @@
         <div class="game-grid">
           <article class="game-card game-card--steam reveal">
             <img class="game-card__art" src="images/hero-investor-pc-main-capsule-right.png" alt="Hero Investor PC Steam capsule artwork with logo on the right">
-            <div class="card-kicker card-kicker--gold">PC · Windows · Steam in development</div>
+            <div class="card-kicker card-kicker--gold">PC · Windows · Coming soon on Steam</div>
             <h4>Hero Investor PC</h4>
             <p>A dedicated PC version of Hero Investor is in development for players who want a bigger screen, deeper focus, and a long-form investment strategy experience.</p>
             <div class="card-actions">
-              <span class="card-link is-planned" aria-disabled="true">Official site coming soon</span>
-              <span class="card-link is-planned" aria-label="Steam page coming soon">Steam page coming soon</span>
+              <a class="card-link" href="/beta">Apply for closed beta</a>
+              <a class="card-link card-link--wishlist" href="https://store.steampowered.com/app/5062780/Hero_Investor/" target="_blank" rel="noopener noreferrer" aria-label="Add Hero Investor to your Steam wishlist">Add to Steam Wishlist ↗</a>
             </div>
           </article>
         </div>
