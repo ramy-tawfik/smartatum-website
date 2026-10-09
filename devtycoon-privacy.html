@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Privacy Policy for Dev Tycoon - Mobile Business Simulation Game">
-    <title>Privacy Policy - Dev Tycoon</title>
+    <meta name="description" content="How Dev Tycoon handles game data, advertising, Firebase services, purchases, support, and privacy requests.">
+    <title>Dev Tycoon Privacy Policy | Smart Atum Studio</title>
+    <link rel="canonical" href="https://smartatum.com/devtycoon-privacy">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.8;
+            overflow-wrap: anywhere;
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
@@ -90,237 +92,122 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <main class="container">
+        <p><a href="https://smartatum.com/">Smart Atum Studio</a> · <a href="https://smartatum.com/privacy">Privacy overview</a></p>
         <h1>Privacy Policy for Dev Tycoon</h1>
-        <p class="last-updated"><strong>Last Updated:</strong> October 8, 2026</p>
+        <p class="last-updated"><strong>Last updated:</strong> October 8, 2026</p>
+        <p>This policy applies to the Android game <strong>Dev Tycoon: Game Dev Simulator</strong> (package <code>com.smartatum.devtycoon</code>), including earlier versions named Dev Tycoon or Software Studio. Smart Atum Studio is an independent studio operated by <strong>Ramy Tawfik</strong> (“we”, “us”). For privacy questions, contact <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a>.</p>
 
         <div class="summary">
-            <h3>Quick Overview</h3>
+            <h2>At a glance</h2>
             <ul>
-                <li>✅ We do NOT collect personal information</li>
-                <li>✅ Game data stays on your device</li>
-                <li>✅ Third-party services (ads, analytics) may collect anonymous data</li>
-                <li>✅ You can opt-out of personalized ads anytime</li>
-                <li>✅ You can delete all data by uninstalling the app</li>
-                <li>✅ We comply with COPPA and Google Play policies</li>
+                <li>Game progress and preferences are stored on your device. Android backup or device-transfer features may also copy eligible app data, depending on your device and settings.</li>
+                <li>The game uses Google AdMob and Unity Ads for advertising, and Firebase Analytics, Crashlytics, and Remote Config for usage measurement, diagnostics, and app configuration.</li>
+                <li>Purchases use Google Play Billing and a purchase-verification service hosted on Google Cloud Run.</li>
+                <li>Support messages and sharing are initiated by you. Local reminders can be disabled in the game settings or Android notification settings.</li>
+                <li>Deleting the app or resetting your game does not automatically delete information already processed by online services.</li>
+                <li>Google Play Games integration is planned but is not currently available.</li>
             </ul>
         </div>
 
-        <div class="section">
-            <h2>Introduction</h2>
-            <p>This privacy policy applies to the Dev Tycoon mobile application (hereby referred to as "Application" or "App") for mobile devices, created by Ramy Tawfik / Smartatum (hereby referred to as "Service Provider") as a free service with advertisements.</p>
-            <p>This policy is intended to inform users regarding the policies concerning the collection, use, and disclosure of Personal Information if anyone decides to use this Service.</p>
-        </div>
+        <section class="section" id="local-data">
+            <h2>1. Game data on your device</h2>
+            <p>The game stores progress, in-game balances, skills, products, contracts, achievements, preferences, and purchase entitlements using local storage, including SQLite and Android preferences. Financial figures inside the simulation are fictional gameplay values, not your real bank balances or financial accounts.</p>
+            <p>Local saves are separate from the gameplay events and diagnostic information processed by the online services described below. The presence of local saves does not mean that all information stays on your device. Android backup and device transfer are also separate from the planned Google Play Games cloud-save feature.</p>
+        </section>
 
-        <div class="section">
-            <h2>Information Collection and Use</h2>
-            <p>The Application does <strong>NOT</strong> collect any personally identifiable information from users. The game is designed to work entirely offline, and all game progress is stored locally on your device.</p>
-
-            <h3>Data Stored Locally on Your Device</h3>
-            <p>The following data is stored locally on your device and is <strong>NOT</strong> transmitted to any servers:</p>
-            <ul>
-                <li><strong>Game Progress:</strong> Your skills, balance, products, contracts, energy level, and game date</li>
-                <li><strong>Financial Data:</strong> In-game currency amounts, cryptocurrency holdings, loan status, and savings</li>
-                <li><strong>User Preferences:</strong> Game settings and tutorial completion status</li>
-                <li><strong>Product History:</strong> Your released products and their performance</li>
-            </ul>
-
-            <p>This data is stored using:</p>
-            <ul>
-                <li>Android SharedPreferences</li>
-                <li>JSON files in internal storage</li>
-                <li>SQLite database (for product history)</li>
-            </ul>
-
-            <p><strong>Important:</strong> This data remains on your device and is not accessible to the Service Provider or any third parties.</p>
-        </div>
-
-        <div class="section">
-            <h2>Third-Party Services</h2>
-            <p>The Application uses third-party services that may collect information used to identify you. These services are integrated for analytics, crash reporting, and advertising purposes.</p>
-
-            <h3>Google Play Services</h3>
-            <ul>
-                <li><strong>Purpose:</strong> Core Android functionality</li>
-                <li><strong>Data Collected:</strong> Device information, app interactions</li>
-                <li><strong>Privacy Policy:</strong> <a href="https://www.google.com/policies/privacy/" target="_blank">Google Privacy Policy</a></li>
-            </ul>
-
-            <h3>Google AdMob</h3>
-            <ul>
-                <li><strong>Purpose:</strong> Display advertisements</li>
-                <li><strong>Data Collected:</strong> Advertising ID, device information, interaction with ads</li>
-                <li><strong>Privacy Policy:</strong> <a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob Privacy Policy</a></li>
-                <li><strong>Your Controls:</strong> You can reset your advertising ID or opt-out of personalized ads in your device settings</li>
-            </ul>
-
+        <section class="section" id="analytics">
+            <h2>2. Analytics, diagnostics, and configuration</h2>
             <h3>Firebase Analytics</h3>
-            <ul>
-                <li><strong>Purpose:</strong> Understand app usage and improve user experience</li>
-                <li><strong>Data Collected:</strong> Anonymous usage statistics, device information, app crashes</li>
-                <li><strong>Privacy Policy:</strong> <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></li>
-                <li><strong>Data Retention:</strong> Analytics data is retained for 60 days</li>
-            </ul>
-
+            <p>We use Google Analytics for Firebase to understand how the game is used and improve gameplay and monetization. Logged events include product development and release, contracts, skill training, in-game economic actions, tutorial progress, achievements, game resets, opening community links, ad outcomes, and purchase-flow outcomes. Event parameters can include gameplay amounts, scores, product categories, purchase product identifiers, and network availability. Player properties include progress groups and whether Pro or a Season Pass is active.</p>
+            <p>The service also processes app-instance identifiers, app and device information, and usage information according to its configuration. These records are not necessarily anonymous simply because they do not contain your name or email address.</p>
             <h3>Firebase Crashlytics</h3>
+            <p>We use Crashlytics to diagnose crashes and stability issues. It processes crash traces, installation identifiers, device and app information, and diagnostic context. The game adds context such as its lifecycle, advertising and billing states, monetization screen, and app and SDK versions.</p>
+            <h3>Firebase Remote Config</h3>
+            <p>We use Remote Config to retrieve configuration values, including the minimum supported app version for update prompts. This service processes installation identifiers and related technical information needed to deliver configuration.</p>
+            <p>More information: <a href="https://firebase.google.com/support/privacy">Firebase privacy and security</a> and <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+        </section>
+
+        <section class="section" id="advertising">
+            <h2>3. Advertising and privacy choices</h2>
+            <p>The game integrates <strong>Google AdMob</strong> and <strong>Unity Ads through AdMob mediation</strong>, including rewarded and interstitial advertisements. Advertising services may process advertising and installation identifiers, IP addresses and approximate location inferred from them, device and app information, ad interactions, and diagnostic information. They use this information to deliver and measure ads, prevent fraud, and, where permitted, personalize advertising.</p>
+            <p>The game uses Google's User Messaging Platform (UMP) to request applicable advertising privacy choices before initializing ads when the SDK permits ad requests. Available consent signals are forwarded to Unity. Choices shown can vary by region and the advertising provider's requirements.</p>
+            <p>You can use the advertising identifier controls available in Android settings to reset or delete your advertising ID, depending on your Android version. You may also use the choices offered by the advertising providers. Limiting personalized advertising does not necessarily remove all ads or stop every form of technical data processing.</p>
+            <p>Advertising choices do not automatically turn off Firebase Analytics, Crashlytics, or Remote Config. Contact us if you need assistance with a privacy request.</p>
+            <p>Provider information: <a href="https://policies.google.com/technologies/ads">Google advertising technologies</a> and <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity Game Player and App User Privacy Policy</a>.</p>
+        </section>
+
+        <section class="section" id="purchases">
+            <h2>4. Purchases and verification</h2>
+            <p>Optional in-app purchases are processed through Google Play Billing. Google handles the payment process; the game does not ask you to enter payment-card details into a studio-operated payment form.</p>
+            <p>To verify eligible purchases and grant or restore purchased content, the game sends the <strong>purchase token, product identifier, and app package name</strong> over HTTPS to our verification service hosted on <strong>Google Cloud Run</strong>. Purchase entitlements and fulfillment records are also stored locally to support access and prevent duplicate rewards.</p>
+            <p>Purchase-related data is used to validate transactions, deliver content, handle support, and prevent misuse. The game separately records limited purchase-flow outcomes in Analytics; these purchase-flow events do not attach purchase tokens or order IDs. Hosting infrastructure may process technical request metadata such as IP addresses and request times.</p>
+            <p>Uninstalling the game or requesting data deletion does not automatically refund purchases or cancel any recurring payments managed through Google Play.</p>
+        </section>
+
+        <section class="section" id="notifications">
+            <h2>5. Local notifications</h2>
+            <p>The game schedules reminders on your device, such as energy reminders, inactivity reminders, and weekly summaries. These reminders use local Android scheduling and notification features, rather than Firebase Cloud Messaging in the current implementation.</p>
+            <p>You can disable reminders in the game's notification settings or in Android's notification settings. Android may also request notification permission, depending on your system version.</p>
+        </section>
+
+        <section class="section" id="support-sharing">
+            <h2>6. Support, community links, and sharing</h2>
+            <p>If you choose to send a support email or bug report, we receive the message, your email address, and any information you include. The game's email actions can prefill the game version and locally stored game-state or preference information; the bug-report action also includes the Android version and device model. The game opens an external email app so you can review or edit the message before sending it.</p>
+            <p>We use this information to investigate issues and respond to you. Please review the prefilled information and do not include passwords, payment-card details, or other unnecessary sensitive information.</p>
+            <p>Sharing features let you choose another app to share game-related content, such as a text message celebrating a fan milestone. You choose whether and where to send it. The receiving app handles the content under its own privacy policy.</p>
+            <p>Community links, including Discord, open third-party services. Information you choose to post or send there is handled by those services and may be visible to other community members. Opening a community link is also recorded as an in-game Analytics event.</p>
+        </section>
+
+        <section class="section" id="recipients">
+            <h2>7. Who processes information</h2>
+            <p>Information is processed by Smart Atum Studio and the service providers described above: Google for Firebase, AdMob, Play Billing, and Cloud Run, and Unity for mediated advertising. Your selected email, sharing, or community services process information when you use them.</p>
+            <p>We may disclose information when reasonably necessary to comply with applicable law, respond to a valid legal request, protect rights and security, or investigate fraud. Google, Unity, and other providers may process information in countries outside your country of residence, as described in their policies.</p>
+        </section>
+
+        <section class="section" id="retention-deletion">
+            <h2>8. Retention and deletion</h2>
+            <p>Retention depends on the type of information and why it is needed. Relevant criteria include maintaining purchased entitlements, resolving support requests, diagnosing issues, preventing fraud, and meeting applicable legal obligations. Provider-held information is also subject to the service's retention settings and deletion processes. Analytics retention varies by the configured retention period and data category; aggregated reports may be retained separately. You can contact us for information about the retention applicable to a specific request.</p>
             <ul>
-                <li><strong>Purpose:</strong> Identify and fix app crashes</li>
-                <li><strong>Data Collected:</strong> Crash logs, device state at time of crash, stack traces</li>
-                <li><strong>Privacy Policy:</strong> <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></li>
-                <li><strong>Note:</strong> No personal information is included in crash reports</li>
+                <li><strong>Local progress:</strong> Reset Game starts a fresh game and removes relevant local progress. It does not necessarily remove every preference or purchase record. Clearing app storage or uninstalling removes local app storage, but Android backups, transferred copies, or content you exported may remain separately.</li>
+                <li><strong>Online information:</strong> Resetting or uninstalling the game does not automatically request deletion from Firebase, advertising providers, our purchase-verification service, or support email.</li>
+                <li><strong>Deletion requests:</strong> See <a href="https://smartatum.com/deletion">our data-deletion page</a> or email <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a> with “Dev Tycoon — Data deletion” and describe the information you want deleted.</li>
             </ul>
-        </div>
+            <p>We may ask for limited information needed to identify the relevant records and verify your request. An email address alone may not identify records associated with an app installation. Do not send passwords, full payment details, or purchase tokens by email.</p>
+            <p>Where applicable, information may need to be retained for legal obligations, security, fraud prevention, or resolving purchase disputes. Provider backups and deletion processing may take additional time. We respond to requests within the time required by applicable law.</p>
+        </section>
 
-        <div class="section">
-            <h2>Advertising</h2>
-            <p>The Application displays advertisements provided by Google AdMob. These ads may be:</p>
-            <ul>
-                <li><strong>Interstitial Ads:</strong> Full-screen ads shown at natural breaks (e.g., after releasing a product)</li>
-                <li><strong>Rewarded Video Ads:</strong> Optional ads that users can watch to receive in-game benefits</li>
-            </ul>
+        <section class="section" id="rights">
+            <h2>9. Your rights and legal bases</h2>
+            <p>Depending on where you live and the law that applies, you may have rights to access, correct, delete, or obtain a copy of personal information, restrict or object to certain processing, withdraw consent, or opt out of certain uses for targeted advertising or sale/sharing as defined by applicable law. Contact <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a> to make a request. You may also have the right to complain to a data-protection authority.</p>
+            <p>Where a legal basis is required, processing may be based on providing the game features or purchases you request, legitimate interests such as maintaining security, diagnosing faults and responding to support requests where permitted, compliance with legal obligations, or consent where required. Simply reading this policy or using the game is not a substitute for an affirmative consent choice where one is required. Withdrawing consent does not affect the lawfulness of earlier processing based on that consent.</p>
+        </section>
 
-            <h3>Ad-Related Data Collection</h3>
-            <p>AdMob may collect:</p>
-            <ul>
-                <li>Advertising ID</li>
-                <li>Device information (model, OS version)</li>
-                <li>IP address</li>
-                <li>Ad interaction data</li>
-            </ul>
+        <section class="section" id="children">
+            <h2>10. Children's privacy</h2>
+            <p>Children's information requires special care. A content rating is not itself a statement about data collection or parental consent. If you are a parent or guardian and believe a child has provided information that should not have been collected, contact <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a> so we can investigate and take appropriate action, including deletion where required.</p>
+            <p>We do not use this policy as parental authorization. Where applicable law requires parental consent or other protections, those requirements apply independently of this notice.</p>
+        </section>
 
-            <h3>Opt-Out Options</h3>
-            <p>You can limit ad tracking:</p>
-            <ol>
-                <li><strong>Android:</strong> Settings → Google → Ads → Opt out of Ads Personalization</li>
-                <li><strong>Reset Advertising ID:</strong> Settings → Google → Ads → Reset advertising ID</li>
-            </ol>
-            <p><strong>Note:</strong> Opting out of personalized ads does not remove ads entirely; you will still see ads, but they may be less relevant to you.</p>
-        </div>
+        <section class="section" id="security">
+            <h2>11. Security</h2>
+            <p>The app uses Android app-storage protections, and purchase-verification requests use HTTPS. Firebase and advertising providers apply their own security measures, described in their documentation. No storage or transmission method can be guaranteed completely secure. Please keep your device protected and avoid sharing sensitive information in public community channels.</p>
+        </section>
 
-        <div class="section">
-            <h2>Children's Privacy</h2>
-            <p>The Application does not knowingly collect personally identifiable information from children under 13. The app is rated for Everyone and contains no age-restricted content.</p>
-            <p>The third-party services (AdMob, Firebase) comply with COPPA (Children's Online Privacy Protection Act) and Google Play's Families Policy.</p>
-            <p>If you are a parent or guardian and believe your child has provided personal information, please contact us at <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a>, and we will work to address your concerns.</p>
-        </div>
-
-        <div class="section">
-            <h2>Security</h2>
-            <p>We value your trust. Since the Application does not collect or transmit personal data to our servers, the security of your game data depends on:</p>
-            <ul>
-                <li>Your device's security (screen lock, encryption)</li>
-                <li>Android's built-in security features</li>
-                <li>Local data storage protections</li>
-            </ul>
-            <p>Third-party services (AdMob, Firebase) use industry-standard security measures to protect data transmitted to their servers.</p>
-        </div>
-
-        <div class="section">
-            <h2>Data Retention and Deletion</h2>
-
-            <h3>Local Game Data</h3>
-            <p>Game data is stored on your device indefinitely until you:</p>
-            <ul>
-                <li>Uninstall the app (deletes all local data)</li>
-                <li>Use the in-game "Reset Game" option</li>
-                <li>Clear app data manually in Android settings</li>
-            </ul>
-
-            <h3>Third-Party Data</h3>
-            <ul>
-                <li><strong>Firebase Analytics:</strong> Retained for 60 days, then automatically deleted</li>
-                <li><strong>Firebase Crashlytics:</strong> Retained for 90 days, then automatically deleted</li>
-                <li><strong>AdMob:</strong> Follow Google's data retention policies</li>
-            </ul>
-
-            <h3>Your Right to Delete Data</h3>
-            <p>You have the right to request deletion of any data associated with your usage:</p>
-            <ul>
-                <li><strong>Local Data:</strong> Simply uninstall the app or use the in-game reset option</li>
-                <li><strong>Analytics Data:</strong> Email us at <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a> to request deletion</li>
-                <li><strong>Ad Data:</strong> Use Google's <a href="https://myactivity.google.com/" target="_blank">My Activity</a> to manage your data</li>
-            </ul>
-        </div>
-
-        <div class="section" id="planned-play-games">
-            <h2>Planned Google Play Games Integration</h2>
+        <section class="section" id="planned-play-games">
+            <h2>12. Planned Google Play Games integration</h2>
             <p>We plan to add Google Play Games support for cloud saves, achievements, and leaderboards in a future Dev Tycoon update. This integration is not currently available, and Dev Tycoon does not currently collect or share data through Google Play Games.</p>
             <p>Before this integration becomes available, we will update this policy to explain the features implemented, the data they use, and the choices available to players.</p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Changes to This Privacy Policy</h2>
-            <p>This Privacy Policy may be updated from time to time. You are advised to review this page periodically for any changes. Changes are effective immediately upon posting.</p>
-            <p><strong>Last Updated:</strong> October 8, 2026</p>
-        </div>
-
-        <div class="section">
-            <h2>Your Consent</h2>
-            <p>By using the Application, you consent to the processing of information about you as described in this Privacy Policy and as permitted by applicable law.</p>
-        </div>
-
-        <div class="section">
-            <h2>Legal Basis for Processing (GDPR Compliance)</h2>
-            <p>For users in the European Economic Area (EEA):</p>
-            <ul>
-                <li><strong>Consent:</strong> By using the app and accepting this policy</li>
-                <li><strong>Legitimate Interest:</strong> To provide and improve our service</li>
-                <li><strong>Legal Obligation:</strong> To comply with applicable laws</li>
-            </ul>
-
-            <h3>Your GDPR Rights</h3>
-            <p>If you are in the EEA, you have the right to:</p>
-            <ul>
-                <li><strong>Access:</strong> Request what data we have about you</li>
-                <li><strong>Rectification:</strong> Request correction of inaccurate data</li>
-                <li><strong>Erasure:</strong> Request deletion of your data</li>
-                <li><strong>Portability:</strong> Request transfer of your data</li>
-                <li><strong>Object:</strong> Object to data processing</li>
-                <li><strong>Withdraw Consent:</strong> Withdraw consent at any time</li>
-            </ul>
-            <p>To exercise these rights, contact us at <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a>.</p>
-        </div>
-
-        <div class="section">
-            <h2>California Privacy Rights (CCPA Compliance)</h2>
-            <p>For California residents:</p>
-
-            <h3>Information We Collect</h3>
-            <p>None directly; third-party services may collect device and usage data</p>
-
-            <h3>How We Use Information</h3>
-            <ul>
-                <li>Analytics to improve the app</li>
-                <li>Advertising to provide free service</li>
-            </ul>
-
-            <h3>Your Rights</h3>
-            <ul>
-                <li><strong>Right to Know:</strong> Request information about data collection</li>
-                <li><strong>Right to Delete:</strong> Request deletion of data</li>
-                <li><strong>Right to Opt-Out:</strong> Opt-out of personalized advertising</li>
-            </ul>
-            <p>To exercise these rights, contact us at <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a>.</p>
-            <p><strong>We do not sell your personal information.</strong></p>
-        </div>
-
-        <div class="section">
-            <h2>Contact Us</h2>
-            <p>If you have any questions or concerns about this Privacy Policy or the Application's data practices, please contact us:</p>
-            <p>
-                <strong>Email:</strong> <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a><br>
-                <strong>Website:</strong> <a href="https://ramy-tawfik.github.io/smartatum-website/" target="_blank">https://ramy-tawfik.github.io/smartatum-website/</a>
-            </p>
-            <p>We will respond to your inquiry within 7 business days.</p>
-        </div>
-
-        <hr>
-
-        <div class="section">
-            <p style="text-align: center; color: #777; font-size: 0.9em;">
-                This privacy policy complies with Google Play Store requirements, GDPR, CCPA, and COPPA regulations.
-            </p>
-        </div>
-    </div>
+        <section class="section" id="changes-contact">
+            <h2>13. Updates and contact</h2>
+            <p>We will update this page when the game's data practices change and revise the date above. Where required, we will provide additional notice or request consent before a material change takes effect.</p>
+            <p><strong>Privacy contact:</strong> Ramy Tawfik, operating as Smart Atum Studio<br>
+            <strong>Email:</strong> <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a><br>
+            <strong>Website:</strong> <a href="https://smartatum.com/">https://smartatum.com/</a><br>
+            <strong>Data-deletion instructions:</strong> <a href="https://smartatum.com/deletion">https://smartatum.com/deletion</a></p>
+        </section>
+    </main>
 </body>
 </html>
