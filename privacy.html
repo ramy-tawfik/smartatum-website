@@ -3,364 +3,691 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Smart Atum privacy policy for the studio website, playtest applications, Android games, and Hero Investor PC.">
+  <meta name="theme-color" content="#edf3f5">
+  <link rel="icon" href="/assets/logo.webp">
+  <meta name="description" content="Smart Atum Studio privacy policy for smartatum.com, closed playtests, Hero Investor for Windows PC, and links to Android game privacy policies.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://smartatum.com/privacy">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://smartatum.com data:; style-src 'self' 'unsafe-inline'; script-src 'sha256-uSUreyymIz5MIhoeumve7iGRJnG/lPMQ4yjZfMCVzo4='; object-src 'none'; frame-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://smartatum.com data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'sha256-uSUreyymIz5MIhoeumve7iGRJnG/lPMQ4yjZfMCVzo4='; object-src 'none'; frame-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 
   <meta property="og:title" content="Privacy Policy | Smart Atum Studio">
-  <meta property="og:description" content="Clear information about how Smart Atum handles website, playtest, Android, and Hero Investor PC data.">
+  <meta property="og:description" content="Clear information about how Smart Atum Studio handles website, playtest, Android, and Hero Investor PC data.">
   <meta property="og:image" content="https://smartatum.com/images/smart-atum-og.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://smartatum.com/privacy">
   <meta property="og:site_name" content="Smart Atum">
 
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy Policy | Smart Atum Studio">
+  <meta name="twitter:description" content="Clear information about how Smart Atum Studio handles website, playtest, Android, and Hero Investor PC data.">
+  <meta name="twitter:image" content="https://smartatum.com/images/smart-atum-og.png">
+
   <title>Privacy Policy | Smart Atum Studio</title>
 
   <style>
+    @font-face {
+      font-family: "Anton";
+      font-style: normal;
+      font-display: swap;
+      font-weight: 400;
+      src: url("/fonts/anton-latin-400.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Inter Variable";
+      font-style: normal;
+      font-display: swap;
+      font-weight: 100 900;
+      src: url("/fonts/inter-latin-ext-wght.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Inter Variable";
+      font-style: normal;
+      font-display: swap;
+      font-weight: 100 900;
+      src: url("/fonts/inter-latin-wght.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
     :root {
-      --ink: #04070d;
-      --ink-soft: #07111f;
-      --panel: #0b1728;
-      --panel-bright: #102139;
-      --paper: #f4efe3;
-      --text: #d9e2f0;
-      --muted: #9ba9bf;
-      --cyan: #00e7ff;
-      --gold: #fbc638;
-      --green: #49e69a;
-      --line: rgba(87, 194, 241, 0.22);
-      --shell: min(1180px, calc(100vw - 48px));
+      --paper: #edf3f5;
+      --surface: #ffffff;
+      --surface-soft: #e2ecef;
+      --dark: #11191c;
+      --dark-text: #ffffff;
+      --dark-muted: #b5c6ce;
+      --dark-line: #3e474a;
+      --ink: #101518;
+      --muted: #424c54;
+      --orange: #ff6000;
+      --orange-ink: #b44300;
+      --orange-hover: #8f3500;
+      --line: #aab2b5;
+      --line-soft: #c1cbce;
+      --focus: #0684cc;
+      --display: "Anton", Impact, sans-serif;
+      --body: "Inter Variable", Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      --shell: min(1380px, calc(100% - 112px));
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 108px;
+    }
     body {
       margin: 0;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 78% 0%, rgba(0, 137, 255, 0.16), transparent 34rem),
-        linear-gradient(180deg, var(--ink) 0%, #050b15 50%, var(--ink) 100%);
-      font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
-      line-height: 1.7;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.72;
+      font-synthesis: none;
     }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: 0.28;
-      background-image:
-        linear-gradient(rgba(0, 231, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 231, 255, 0.045) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: linear-gradient(to bottom, black, transparent 80%);
-    }
-    a { color: var(--cyan); }
-    a:hover { color: #7df4ff; }
     img { display: block; max-width: 100%; }
-    :focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+    a {
+      color: var(--orange-ink);
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 3px;
+    }
+    a:hover { color: var(--orange-hover); }
+    :where(a, button, [tabindex="-1"]):focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 4px;
+    }
+
+    .visually-hidden:where(:not(:focus-within, :active)) {
+      position: absolute !important;
+      clip-path: inset(50%) !important;
+      overflow: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+      margin: -1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      white-space: nowrap !important;
+    }
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 40;
+      padding: 10px 18px;
+      border-radius: 100px;
+      border: 2px solid var(--ink);
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
 
     .shell { width: var(--shell); margin-inline: auto; }
-    .mono {
-      font-family: ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
-      letter-spacing: 0.08em;
+    .eyebrow {
+      font-size: 0.78rem;
+      line-height: 1.5;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+      color: var(--orange-ink);
     }
 
     .site-header {
       position: sticky;
       top: 0;
       z-index: 20;
-      border-bottom: 1px solid var(--line);
-      background: rgba(4, 7, 13, 0.9);
-      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line-soft);
+      background: rgba(237, 243, 245, 0.94);
+      backdrop-filter: blur(16px);
     }
-    .nav {
-      min-height: 72px;
+    .nav-bar {
+      min-height: 90px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 24px;
+      padding-block: 12px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
       gap: 24px;
     }
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 11px;
-      color: var(--paper);
+      gap: 13px;
+      color: var(--ink);
       text-decoration: none;
+      white-space: nowrap;
     }
+    .brand:hover { color: var(--ink); }
     .brand img {
-      width: 35px;
-      height: 35px;
-      object-fit: cover;
-      border-radius: 6px;
-      clip-path: polygon(0 0, 100% 0, 100% 78%, 78% 100%, 0 100%);
+      width: 38px;
+      height: 57px;
+      object-fit: contain;
+      border-radius: 5px;
     }
     .brand span {
-      font-size: 0.88rem;
-      font-weight: 750;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-size: 24px;
+      font-weight: 850;
+      letter-spacing: -0.04em;
     }
-    .nav-links {
+    .studio-tag {
+      padding-left: 24px;
+      border-left: 1px solid #9da6ad;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .navigation ul {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 24px;
+      gap: 8px 28px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.8rem;
-      font-weight: 650;
-      letter-spacing: 0.07em;
+    .navigation a {
+      display: inline-flex;
+      align-items: center;
+      min-block-size: 44px;
+      padding-block: 8px;
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.06em;
       text-decoration: none;
       text-transform: uppercase;
+      border-bottom: 2px solid transparent;
+      transition: color 180ms ease, border-color 180ms ease;
     }
-    .nav-links a:hover { color: var(--paper); }
+    .navigation a:hover { color: var(--orange-ink); }
+    .navigation a[aria-current="page"] {
+      color: var(--orange-ink);
+      font-weight: 800;
+      border-bottom-color: var(--orange-ink);
+    }
 
-    .hero { padding: 92px 0 66px; }
+    .hero { padding: 56px 0 60px; }
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.64fr);
-      gap: 72px;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+      gap: 52px;
       align-items: end;
     }
-    .eyebrow {
-      margin-bottom: 18px;
-      color: var(--cyan);
-      font-size: 0.74rem;
+    h1 {
+      margin: 14px 0 0;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(3rem, 6.2vw, 5.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+    h1 span { color: var(--orange); }
+    .hero-copy {
+      max-width: 65ch;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+      line-height: 1.65;
+    }
+    .quick-jumps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: 1.5px solid transparent;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+    .pill:hover { transform: translateY(-2px); }
+    .pill-dark {
+      background: var(--ink);
+      color: var(--dark-text);
+    }
+    .pill-dark:hover {
+      background: #283137;
+      color: var(--dark-text);
+    }
+    .pill-outline {
+      background: var(--surface);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .pill-outline:hover {
+      border-color: var(--orange);
+      color: var(--orange-ink);
+    }
+    .pill-orange {
+      background: var(--orange);
+      color: var(--ink);
       font-weight: 700;
     }
-    h1 {
-      max-width: 780px;
-      margin: 0;
-      color: var(--paper);
-      font-size: clamp(3.3rem, 7.4vw, 6.7rem);
-      line-height: 0.91;
-      letter-spacing: -0.065em;
+    .pill-orange:hover {
+      background: #ff8238;
+      color: var(--ink);
     }
-    h1 span { color: var(--gold); }
-    .hero-copy {
-      max-width: 720px;
-      margin: 28px 0 0;
-      color: #bbc7d9;
-      font-size: clamp(1.03rem, 1.5vw, 1.2rem);
-      line-height: 1.75;
-    }
+
     .policy-stamp {
-      position: relative;
-      padding: 28px;
-      border: 1px solid var(--line);
-      background: linear-gradient(145deg, rgba(0, 231, 255, 0.08), transparent 58%), var(--ink-soft);
-      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+      padding: 26px 28px;
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-left: 4px solid var(--orange);
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(16, 21, 24, 0.05);
     }
-    .policy-stamp::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 3px;
-      background: linear-gradient(var(--cyan), var(--gold));
+    .policy-stamp .label {
+      color: var(--orange-ink);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
-    .policy-stamp .label { color: var(--muted); font-size: 0.68rem; }
     .policy-stamp strong {
       display: block;
-      margin: 8px 0 18px;
-      color: var(--paper);
+      margin: 8px 0 12px;
+      color: var(--ink);
       font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
-    .policy-stamp p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .policy-stamp p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+    .policy-stamp p + p { margin-top: 8px; }
 
     .boundary {
-      padding: 0 0 90px;
+      background: var(--dark);
+      color: var(--dark-text);
+      padding: 56px 0 64px;
     }
-    .boundary-title {
-      margin: 0 0 20px;
-      color: var(--muted);
-      font-size: 0.74rem;
+    .boundary .eyebrow { color: var(--orange); }
+    .boundary-heading {
+      margin: 8px 0 0;
+      font-family: var(--body);
+      font-weight: 900;
+      font-size: clamp(2rem, 4.2vw, 3.35rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: var(--dark-text);
     }
     .boundary-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      border: 1px solid var(--line);
-      background: var(--line);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 34px;
+      border-top: 1px solid var(--dark-line);
     }
     .boundary-item {
-      min-height: 190px;
-      padding: 30px;
-      background: rgba(7, 17, 31, 0.96);
+      position: relative;
+      padding: 30px 30px 8px 0;
+    }
+    .boundary-item + .boundary-item {
+      padding-left: 30px;
+      border-left: 1px solid var(--dark-line);
     }
     .boundary-item .index {
       display: block;
-      margin-bottom: 30px;
-      color: var(--cyan);
-      font-size: 0.7rem;
+      margin-bottom: 16px;
+      color: var(--orange);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
-    .boundary-item:nth-child(2) .index { color: var(--gold); }
-    .boundary-item:nth-child(3) .index { color: var(--green); }
-    .boundary-item h2 {
-      margin: 0 0 10px;
-      color: var(--paper);
-      font-size: 1.25rem;
+    .boundary-item h3 {
+      margin: 0 0 12px;
+      font-family: var(--body);
+      font-weight: 850;
+      font-size: 1.45rem;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--dark-text);
     }
-    .boundary-item p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+    .boundary-item p {
+      margin: 0;
+      color: var(--dark-muted);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
 
     .policy-layout {
       display: grid;
-      grid-template-columns: 245px minmax(0, 1fr);
-      gap: 68px;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 64px;
       align-items: start;
-      padding-bottom: 100px;
+      padding: 64px 0 88px;
     }
     .contents {
       position: sticky;
-      top: 100px;
-      padding: 24px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      top: 108px;
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 14px;
     }
     .contents h2 {
-      margin: 0 0 18px;
+      margin: 0 0 16px;
       color: var(--muted);
-      font-size: 0.7rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
-    .contents ol { margin: 0; padding: 0; list-style: none; }
-    .contents li + li { margin-top: 10px; }
+    .contents ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .contents li + li { margin-top: 4px; }
     .contents a {
       display: grid;
-      grid-template-columns: 26px 1fr;
+      grid-template-columns: 28px 1fr;
       gap: 8px;
+      align-items: baseline;
+      min-block-size: 28px;
+      padding-block: 4px;
       color: var(--muted);
-      font-size: 0.86rem;
+      font-size: 0.88rem;
+      font-weight: 500;
       line-height: 1.4;
       text-decoration: none;
     }
-    .contents a span { color: rgba(0, 231, 255, 0.65); font-family: ui-monospace, monospace; }
-    .contents a:hover { color: var(--paper); }
-
-    .policy-body {
-      border-top: 1px solid var(--line);
+    .contents a span {
+      color: var(--orange-ink);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
     }
+    .contents a:hover {
+      color: var(--ink);
+      text-decoration: underline;
+    }
+
+    .policy-body { min-width: 0; }
     .policy-section {
-      scroll-margin-top: 98px;
-      padding: 52px 0;
-      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 108px;
+      padding: 46px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .policy-section:first-child { padding-top: 0; }
+    .policy-section:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
     }
     .section-label {
-      margin-bottom: 11px;
-      color: var(--cyan);
-      font-size: 0.68rem;
+      margin-bottom: 10px;
+      color: var(--orange-ink);
+      font-size: 0.78rem;
       font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
     .policy-section h2 {
-      margin: 0 0 24px;
-      color: var(--paper);
-      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
-      line-height: 1.12;
+      margin: 0 0 22px;
+      color: var(--ink);
+      font-family: var(--body);
+      font-weight: 900;
+      font-size: clamp(1.65rem, 2.8vw, 2.35rem);
+      line-height: 1.15;
       letter-spacing: -0.035em;
     }
     .policy-section h3 {
-      margin: 34px 0 10px;
-      color: var(--paper);
-      font-size: 1.08rem;
+      margin: 30px 0 10px;
+      color: var(--ink);
+      font-family: var(--body);
+      font-weight: 800;
+      font-size: 1.12rem;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
     }
-    .policy-section p { margin: 0 0 18px; }
+    .policy-section p,
+    .policy-section ul,
+    .policy-section .note {
+      max-width: 68ch;
+    }
+    .policy-section p { margin: 0 0 16px; color: var(--ink); }
     .policy-section p:last-child { margin-bottom: 0; }
-    .policy-section ul { margin: 18px 0; padding-left: 22px; }
-    .policy-section li { margin: 9px 0; padding-left: 5px; }
-    .policy-section li::marker { color: var(--cyan); }
+    .policy-section ul { margin: 16px 0; padding-left: 22px; }
+    .policy-section li { margin: 9px 0; padding-left: 4px; }
+    .policy-section li::marker { color: var(--orange-ink); }
     .note {
-      margin: 26px 0;
-      padding: 18px 20px;
-      border-left: 2px solid var(--gold);
-      color: #c8d3e4;
-      background: rgba(251, 198, 56, 0.055);
+      margin: 24px 0;
+      padding: 18px 22px;
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-left: 4px solid var(--orange);
+      border-radius: 10px;
+      color: var(--ink);
     }
+
+    .games-table-wrap {
+      margin: 24px 0;
+      overflow-x: auto;
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+    }
+    .games-table {
+      width: 100%;
+      min-width: 600px;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.94rem;
+    }
+    .games-table caption {
+      padding: 16px 20px 10px;
+      text-align: left;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .games-table th,
+    .games-table td {
+      padding: 14px 20px;
+      vertical-align: top;
+      border-top: 1px solid var(--line-soft);
+    }
+    .games-table thead th {
+      background: var(--surface-soft);
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .games-table tbody th {
+      color: var(--ink);
+      font-weight: 750;
+      white-space: nowrap;
+    }
+    .games-table tbody td:last-child { white-space: nowrap; }
+
     .service-links {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 12px;
       margin-top: 24px;
     }
     .service-link {
-      padding: 16px;
-      border: 1px solid var(--line);
-      color: var(--text);
-      background: var(--ink-soft);
+      display: block;
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      color: var(--ink);
+      font-weight: 700;
       text-decoration: none;
+      transition: border-color 180ms ease, transform 180ms ease;
     }
     .service-link span {
       display: block;
       margin-top: 4px;
+      color: var(--orange-ink);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .service-link:hover {
+      border-color: var(--orange);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .contact-panel {
+      margin-top: 24px;
+      padding: 26px 28px;
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-left: 4px solid var(--orange);
+      border-radius: 12px;
+    }
+    .contact-panel strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-size: 1.08rem;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .footer-inner {
+      min-height: 112px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 24px 30px;
+      padding-block: 24px;
+    }
+    .brand-small img { width: 32px; height: 48px; }
+    .brand-small span { font-size: 18px; letter-spacing: -0.03em; }
+    .studio-copy {
+      border-left: 1px solid var(--line);
+      padding-left: 24px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+    .studio-copy p { margin: 0; }
+    .studio-copy p + p {
+      margin-top: 4px;
       color: var(--muted);
       font-size: 0.78rem;
     }
-    .service-link:hover { border-color: rgba(0, 231, 255, 0.55); color: var(--paper); }
-    .contact-panel {
-      margin-top: 28px;
-      padding: 28px;
-      border: 1px solid var(--line);
-      background: linear-gradient(120deg, rgba(0, 231, 255, 0.08), transparent), var(--ink-soft);
-    }
-    .contact-panel strong { display: block; margin-bottom: 8px; color: var(--paper); }
-
-    footer {
-      border-top: 1px solid var(--line);
-      background: rgba(4, 7, 13, 0.82);
-    }
-    .footer-inner {
-      min-height: 100px;
+    .footer-links {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      color: var(--muted);
-      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      margin-left: auto;
+      font-size: 0.84rem;
+      font-weight: 600;
     }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 22px; }
-    .footer-links a { color: var(--muted); text-decoration: none; }
-    .footer-links a:hover { color: var(--paper); }
+    .footer-links a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: var(--orange-ink);
+      text-decoration: underline;
+    }
 
+    @media (max-width: 1100px) {
+      :root { --shell: calc(100% - 64px); }
+      .studio-tag { display: none; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .policy-layout { grid-template-columns: 230px minmax(0, 1fr); gap: 40px; }
+    }
     @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 42px; }
       .boundary-grid { grid-template-columns: 1fr; }
-      .boundary-item { min-height: auto; }
+      .boundary-item { padding: 24px 0; }
+      .boundary-item + .boundary-item {
+        padding-left: 0;
+        border-left: 0;
+        border-top: 1px solid var(--dark-line);
+      }
       .policy-layout { grid-template-columns: 1fr; gap: 36px; }
       .contents { position: static; }
       .contents ol { columns: 2; column-gap: 24px; }
       .contents li { break-inside: avoid; }
-      .service-links { grid-template-columns: 1fr; }
     }
-    @media (max-width: 620px) {
-      :root { --shell: min(100% - 28px, 1180px); }
-      .nav { min-height: 64px; }
-      .nav-links li:first-child { display: none; }
-      .nav-links { gap: 14px; }
-      .nav-links a { font-size: 0.72rem; }
-      .brand span { font-size: 0.76rem; }
-      .hero { padding: 62px 0 48px; }
-      h1 { font-size: clamp(3rem, 16vw, 5rem); }
-      .boundary { padding-bottom: 64px; }
+    @media (max-width: 760px) {
+      :root { --shell: calc(100% - 40px); }
+      .nav-bar {
+        min-height: 76px;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+      }
+      .brand img { width: 30px; height: 45px; }
+      .brand span { font-size: 20px; }
+      .navigation ul { gap: 4px 18px; }
+      .hero { padding: 36px 0 44px; }
       .contents ol { columns: 1; }
-      .policy-section { padding: 42px 0; }
-      .footer-inner { padding: 26px 0; align-items: flex-start; flex-direction: column; }
+      .policy-layout { padding: 44px 0 64px; }
+      .policy-section { padding: 36px 0; }
+      .studio-copy {
+        order: 3;
+        width: 100%;
+        border-left: 0;
+        padding-left: 0;
+      }
+      .footer-links { margin-left: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+    @media (forced-colors: active) {
+      .navigation a[aria-current="page"] { border-bottom-color: LinkText; }
+      .policy-stamp, .note, .contact-panel, .contents, .service-link { border-color: CanvasText; }
     }
     @media print {
-      :root { --paper: #111; --text: #222; --muted: #555; --line: #bbb; }
-      body { color: #222; background: #fff; }
-      body::before, .site-header, .contents, footer { display: none; }
-      .hero { padding: 24px 0; }
-      h1, .policy-section h2, .policy-section h3, .boundary-item h2 { color: #111; }
-      h1 span { color: #111; }
+      :root {
+        --paper: #ffffff;
+        --surface: #ffffff;
+        --surface-soft: #f5f5f5;
+        --dark: #ffffff;
+        --dark-text: #111111;
+        --dark-muted: #444444;
+        --dark-line: #bbbbbb;
+        --ink: #111111;
+        --muted: #444444;
+        --orange: #111111;
+        --orange-ink: #111111;
+        --orange-hover: #111111;
+        --line: #bbbbbb;
+        --line-soft: #cccccc;
+      }
+      body { color: #111111; background: #ffffff; }
+      .skip-link, .site-header, .quick-jumps, .contents, .site-footer { display: none; }
+      .hero { padding: 16px 0 24px; }
+      .boundary { padding: 16px 0 24px; }
       .hero-grid, .boundary-grid, .policy-layout { display: block; }
-      .policy-stamp, .boundary-item, .contact-panel { color: #222; background: #fff; border-color: #bbb; clip-path: none; }
-      .boundary-item { min-height: 0; margin-bottom: 12px; }
-      .policy-section { break-inside: avoid; }
-      a { color: #111; text-decoration: underline; }
+      .boundary-item { padding: 12px 0; border-left: 0; border-top: 1px solid #cccccc; }
+      .boundary-item, .note, .contact-panel, .policy-stamp { break-inside: avoid; }
+      h2, h3 { break-after: avoid; }
+      a { color: #111111; text-decoration: underline; }
     }
   </style>
 <script>
@@ -370,98 +697,124 @@
 </script>
 </head>
 <body>
+  <a class="skip-link visually-hidden" href="#policy-heading">Skip to policy</a>
+
   <header class="site-header">
-    <nav class="nav shell" aria-label="Primary navigation">
-      <a class="brand" href="https://smartatum.com/" aria-label="Smart Atum home">
-        <img src="https://smartatum.com/images/logo.png" alt="">
-        <span>Smart Atum</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="https://smartatum.com/#games">Games</a></li>
-        <li><a href="https://smartatum.com/deletion">Data deletion</a></li>
-        <li><a href="mailto:smartatum@gmail.com">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="nav-bar shell">
+      <div class="brand-group">
+        <a class="brand" href="https://smartatum.com/" aria-label="Smart Atum home">
+          <img src="/assets/logo.webp" alt="" width="38" height="57">
+          <span>SMART ATUM</span>
+        </a>
+        <span class="studio-tag">Independent Game Studio</span>
+      </div>
+      <nav class="navigation" aria-label="Primary">
+        <ul>
+          <li><a href="https://smartatum.com/#games">Games</a></li>
+          <li><a href="https://smartatum.com/privacy" aria-current="page">Privacy</a></li>
+          <li><a href="https://smartatum.com/deletion">Data deletion</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="hero shell">
       <div class="hero-grid">
         <div>
-          <div class="eyebrow mono">Privacy &amp; data practices</div>
-          <h1>Clear boundaries for <span>your data.</span></h1>
-          <p class="hero-copy">This policy explains what Smart Atum handles across our website, playtest applications, Android games, and Hero Investor for Windows PC—and what stays entirely on your device.</p>
+          <p class="eyebrow">Privacy &amp; data practices</p>
+          <h1 id="policy-heading" tabindex="-1">CLEAR BOUNDARIES FOR <span>YOUR DATA.</span></h1>
+          <p class="hero-copy">This policy explains what Smart Atum Studio handles across our website, closed playtest applications, Android games, and Hero Investor for Windows PC—and what stays on your device.</p>
+          <div class="quick-jumps">
+            <a class="pill pill-dark" href="#website">Website &amp; playtests</a>
+            <a class="pill pill-outline" href="#pc">Hero Investor PC</a>
+            <a class="pill pill-outline" href="#android">Android games</a>
+            <a class="pill pill-orange" href="https://smartatum.com/deletion">Data deletion</a>
+          </div>
         </div>
         <aside class="policy-stamp" aria-label="Policy status">
-          <div class="label mono">Policy record</div>
-          <strong>Effective November 19, 2026</strong>
+          <div class="label">Policy record</div>
+          <strong>Effective November 23, 2026</strong>
           <p>Controller and developer: Smart Atum Studio, operated by Ramy Tawfik.</p>
+          <p>Privacy &amp; support: <a href="mailto:contact@smartatum.com">contact@smartatum.com</a></p>
         </aside>
       </div>
     </section>
 
-    <section class="boundary shell" aria-labelledby="boundary-title">
-      <h2 class="boundary-title mono" id="boundary-title">Data boundary ledger</h2>
-      <div class="boundary-grid">
-        <article class="boundary-item">
-          <span class="index mono">01 · On your device</span>
-          <h2>Local by default</h2>
-          <p>Hero Investor PC saves, settings, logs, and bounded diagnostics remain on your Windows PC unless you choose a feature that transfers eligible data.</p>
-        </article>
-        <article class="boundary-item">
-          <span class="index mono">02 · Your choice</span>
-          <h2>Shared deliberately</h2>
-          <p>Information is sent to Smart Atum when you submit a playtest application, contact support, or explicitly send a bug report. In the Hero Investor PC closed alpha, you can also enable automatic crash reporting to Sentry.</p>
-        </article>
-        <article class="boundary-item">
-          <span class="index mono">03 · Platform services</span>
-          <h2>Handled separately</h2>
-          <p>Steam, Google, Cloudflare, and Sentry process information under their own policies when you use their platforms or infrastructure.</p>
-        </article>
+    <section class="boundary">
+      <div class="shell">
+        <p class="eyebrow">Data boundary ledger</p>
+        <h2 class="boundary-heading">Where your data lives.</h2>
+        <div class="boundary-grid">
+          <article class="boundary-item">
+            <span class="index">01 · On your device</span>
+            <h3>Local by default</h3>
+            <p>Hero Investor PC saves, settings, logs, and bounded diagnostics remain on your Windows PC, and offline-capable Android game saves remain on your device unless you enable a cloud or transfer feature.</p>
+          </article>
+          <article class="boundary-item">
+            <span class="index">02 · Your choice</span>
+            <h3>Shared deliberately</h3>
+            <p>Information is sent to Smart Atum Studio when you submit a playtest application, redeem a promo code, contact support, send an in-game bug report, or enable optional crash reporting in the Hero Investor PC closed alpha.</p>
+          </article>
+          <article class="boundary-item">
+            <span class="index">03 · Platform &amp; third-party services</span>
+            <h3>Handled separately</h3>
+            <p>Steam, Google, Cloudflare, Sentry, Discord, and game-specific Android advertising partners process information under their own policies when you use their platforms or features.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <div class="policy-layout shell">
-      <aside class="contents" aria-label="Policy contents">
-        <h2 class="mono">Contents</h2>
-        <ol>
-          <li><a href="#scope"><span>01</span> Scope and identity</a></li>
-          <li><a href="#website"><span>02</span> Website and playtests</a></li>
-          <li><a href="#pc"><span>03</span> Hero Investor PC</a></li>
-          <li><a href="#android"><span>04</span> Android games</a></li>
-          <li><a href="#use"><span>05</span> How information is used</a></li>
-          <li><a href="#sharing"><span>06</span> Sharing and providers</a></li>
-          <li><a href="#retention"><span>07</span> Retention and deletion</a></li>
-          <li><a href="#rights"><span>08</span> Your choices and rights</a></li>
-          <li><a href="#security"><span>09</span> Security and children</a></li>
-          <li><a href="#contact"><span>10</span> Changes and contact</a></li>
-        </ol>
+      <aside class="contents">
+        <nav aria-labelledby="toc-heading">
+          <h2 id="toc-heading">Contents</h2>
+          <ol>
+            <li><a href="#scope"><span>01</span> Scope and identity</a></li>
+            <li><a href="#website"><span>02</span> Website, cookies &amp; playtests</a></li>
+            <li><a href="#pc"><span>03</span> Hero Investor PC</a></li>
+            <li><a href="#android"><span>04</span> Android games</a></li>
+            <li><a href="#use"><span>05</span> Use and legal bases</a></li>
+            <li><a href="#sharing"><span>06</span> Sharing and transfers</a></li>
+            <li><a href="#retention"><span>07</span> Retention and deletion</a></li>
+            <li><a href="#rights"><span>08</span> Choices and rights</a></li>
+            <li><a href="#security"><span>09</span> Security</a></li>
+            <li><a href="#children"><span>10</span> Children's privacy</a></li>
+            <li><a href="#contact"><span>11</span> Changes and contact</a></li>
+          </ol>
+        </nav>
       </aside>
 
       <article class="policy-body">
         <section class="policy-section" id="scope">
-          <div class="section-label mono">01 · Scope and identity</div>
+          <div class="section-label">01 · Scope and identity</div>
           <h2>Who this policy covers</h2>
-          <p>This page provides the studio privacy overview for <strong>smartatum.com</strong>, playtest applications, and <strong>Hero Investor for Windows PC</strong>, and links to the privacy policies for our Android games. The linked game-specific policy describes that title's services and data practices; Android features must not be inferred from the separate PC edition.</p>
+          <p>This page provides the studio privacy overview for <strong>smartatum.com</strong>, closed playtest applications, promo-code redemptions, and <strong>Hero Investor for Windows PC</strong>, and links to the dedicated privacy notices for our Android games. Each linked game-specific policy describes that title's services and data practices; Android features must not be inferred from the separate PC edition.</p>
           <p>For this policy, “Smart Atum,” “we,” “our,” and “us” mean <strong>Smart Atum Studio, operated by Ramy Tawfik</strong>. We determine how information handled by the studio is used for the purposes described here and in the relevant game policy.</p>
-          <div class="note">Hero Investor PC is a local, single-player game. The PC edition contains no advertising and no in-app purchases.</div>
+          <div class="note"><strong>Hero Investor PC</strong> is a local, single-player game. The PC edition contains no advertising and no in-app purchases.</div>
         </section>
 
         <section class="policy-section" id="website">
-          <div class="section-label mono">02 · Website and playtest applications</div>
+          <div class="section-label">02 · Website, cookies, and playtests</div>
           <h2>Information connected to the website</h2>
-          <h3>Website delivery and security</h3>
-          <p>When you visit smartatum.com, our hosting and security provider may process ordinary network and request information such as IP address, browser or user-agent information, requested URL, date and time, and security signals. This information is used to deliver the site, prevent abuse, and maintain reliability.</p>
-          <p>Smart Atum does not use this website to serve behavioral advertising or sell personal information. Links to external websites are governed by those websites’ own policies.</p>
 
-          <h3>Closed-playtest applications</h3>
+          <h3>Website delivery, security, and cookies</h3>
+          <p>When you visit smartatum.com, our hosting and security provider (Cloudflare) may process ordinary network and request information such as IP address, browser or user-agent information, requested URL, date and time, and security signals. This information is used to deliver the site, prevent abuse, and maintain reliability.</p>
+          <p>Smart Atum Studio does not use smartatum.com to serve behavioral advertising, does not sell personal information, and does not set advertising or analytics cookies on the website. Cloudflare may use strictly necessary security mechanisms or cookies to protect the service, and promotional pages such as the closed-alpha and promo-claim pages load Google Fonts, which sends ordinary request metadata such as your IP address to Google. External websites linked from our pages are governed by their own policies.</p>
+
+          <h3>Promo-code redemptions</h3>
+          <p>If you visit our promo-claim page (<code>smartatum.com/claim</code>) and submit a claim code, that code is sent over HTTPS to a Smart Atum Cloudflare Worker (<code>promoclaim.smartatum.workers.dev</code>) solely to validate one-time eligibility and return your reward code.</p>
+
+          <h3>Closed-playtest applications and Discord</h3>
           <p>Hero Investor PC playtest applications are hosted directly on Google Forms. The application may ask for your Discord username, country or time zone, Windows and hardware specifications, display configuration, testing availability, feedback interests, relevant game experience, and written responses.</p>
-          <p>We use application responses only to evaluate applicants, coordinate testing, communicate with selected participants, protect the test, and improve Hero Investor PC. Applying does not require a purchase. Google separately processes use of Google Forms under the Google Privacy Policy.</p>
+          <p>We use application responses only to evaluate applicants, coordinate testing, communicate with selected participants through our private Discord test channel, protect the test, and improve Hero Investor PC. Applying does not require a purchase. Google and Discord separately process use of Google Forms and Discord under their own privacy policies.</p>
         </section>
 
         <section class="policy-section" id="pc">
-          <div class="section-label mono">03 · Hero Investor for Windows PC</div>
+          <div class="section-label">03 · Hero Investor for Windows PC</div>
           <h2>PC data stays local unless you choose otherwise</h2>
+
           <h3>Files stored on the PC</h3>
           <p>Hero Investor PC may store saves, autosaves, manual checkpoints, settings, logs, screenshots created by the game, pending bug-report packages, and bounded gameplay diagnostics in the game’s Windows application-data folders. These files remain on the PC unless you use an explicit transfer feature.</p>
           <p>Machine-local diagnostics are limited in size and rotation. A random installation identifier may be stored locally to connect diagnostic events from the same installation; it is not your Steam identity. The game provides a separate control to clear local analytics diagnostics without deleting saves or ordinary settings.</p>
@@ -472,9 +825,9 @@
           <p>Machine-specific settings, live databases, logs, local diagnostics, and pending bug-report packages are not intended for Steam Cloud synchronization. Valve processes Steam account, purchase, Cloud, achievement, platform, and usage information under Valve’s own agreements and privacy policy.</p>
 
           <h3 id="pc-crash-reporting">Optional crash reporting in the Windows closed alpha</h3>
-          <p>Smart Atum Games uses Sentry to diagnose crashes and selected errors. On first launch, the reporting box starts checked for new closed-alpha players. Choose <strong>Agree and enable reports</strong> to start sharing, or clear the box and choose <strong>Agree and continue</strong> to play with reporting off. You can change your choice in Settings at any time. Turning it off stops future reports.</p>
+          <p>Smart Atum Studio uses Sentry to diagnose crashes and selected errors. On first launch, the reporting box starts checked for new closed-alpha players. Choose <strong>Agree and enable reports</strong> to start sharing, or clear the box and choose <strong>Agree and continue</strong> to play with reporting off. You can change your choice in Settings at any time. Turning it off stops future reports.</p>
           <p>When enabled, the game automatically sends technical details to Sentry in the United States. A report may include the exception type and stack frames, thread, game version, system and runtime details, current and previous screens, and game phase. The closed alpha sends no performance traces. Automatic reports exclude saves, screenshots, application logs, text you enter, Steam identity, account names, and financial values.</p>
-          <p>The Sentry project disables IP address storage. Event retention follows the project’s configured Sentry plan. For privacy questions or deletion requests, use the <a href="https://smartatum.com/deletion">data-deletion page</a> or email <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a>.</p>
+          <p>The Sentry project disables IP address storage. Event retention follows the project’s configured Sentry retention period. For privacy questions or deletion requests, use the <a href="https://smartatum.com/deletion">data-deletion page</a> or email <a href="mailto:contact@smartatum.com">contact@smartatum.com</a>.</p>
 
           <h3>Optional in-game bug reports</h3>
           <p>Manual bug reports are separate from automatic Sentry crash reports. If an online reporting service is enabled, a report is transferred only after you open <strong>Report a Bug</strong>, complete the form, choose any optional diagnostic items, and press the send button.</p>
@@ -483,101 +836,148 @@
         </section>
 
         <section class="policy-section" id="android">
-          <div class="section-label mono">04 · Android games</div>
-          <h2>Privacy details for each Android game</h2>
-          <p>Our Android titles include <strong>Streamlord</strong>, <strong>Hero Investor</strong>, <strong>Dev Tycoon</strong>, and <strong>Music Career Tycoon</strong>. Services differ by game and version. Read the relevant policy below for the title you use; a service used by one game is not necessarily used by another.</p>
-          <p>Streamlord for Android stores game saves locally on your device and uses Google AdMob with Google's User Messaging Platform (UMP) for optional rewarded ads and regional consent, Firebase Analytics and Crashlytics for usage and crash diagnostics, Google Play In-App Updates, and (where enabled) Google Play Billing for optional one-time purchases.</p>
-          <p>Hero Investor for Android uses AdMob with Unity Ads and Meta Audience Network mediation; Firebase Analytics, Crashlytics, Performance Monitoring, Remote Config, and Cloud Messaging; Google Play Games for cloud saves, leaderboards, and achievements; and Google Play Billing with a Google Cloud purchase-verification backend. These services process the corresponding device, identifier, gameplay, advertising, diagnostic, notification, or transaction information. The Hero Investor policy also explains optional sharing of in-game images and reports and related analytics events.</p>
-          <p>Google processes information collected through its services under the Google Privacy Policy. Smart Atum does not receive your Google account password or payment-card details from Google Play.</p>
-          <h3>Detailed Android game notices</h3>
-          <p>These pages describe the services and data practices used by each Android title:</p>
-          <div class="service-links">
-            <a class="service-link" href="https://smartatum.com/streamlord_privacy_policy">Streamlord<span>Android privacy details →</span></a>
-            <a class="service-link" href="https://smartatum.com/hero_investor_privacy_policy">Hero Investor<span>Android privacy details →</span></a>
-            <a class="service-link" href="https://smartatum.com/devtycoon-privacy">Dev Tycoon<span>Android privacy details →</span></a>
-            <a class="service-link" href="https://smartatum.com/music_career_tycoon_privacy_policy">Music Career Tycoon<span>Android privacy details →</span></a>
+          <div class="section-label">04 · Android games</div>
+          <h2>Privacy notices for Android games</h2>
+          <p>Our Android titles include <strong>Streamlord</strong>, <strong>Hero Investor</strong>, <strong>Dev Tycoon</strong>, and <strong>Music Career Tycoon</strong>. Services, ad partners, and consent controls differ by game and version—read the dedicated policy for the title you play for the authoritative list of SDKs and data practices.</p>
+
+          <div class="games-table-wrap">
+            <table class="games-table">
+              <caption>Smart Atum Android titles and high-level data scope</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Game</th>
+                  <th scope="col">High-level data &amp; services</th>
+                  <th scope="col">Full policy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Streamlord</th>
+                  <td>Local saves; optional rewarded ads (AdMob + UMP); Google Play Age Signals; Firebase Analytics (Consent Mode v2) &amp; Crashlytics; Play In-App Updates &amp; optional Play Billing.</td>
+                  <td><a href="https://smartatum.com/streamlord_privacy_policy">Streamlord policy</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">Hero Investor</th>
+                  <td>Local &amp; Play Games cloud saves, leaderboards, and achievements; AdMob (Unity &amp; Meta mediation) + UMP; Firebase Analytics, Crashlytics, Performance, Remote Config &amp; Cloud Messaging; Play Billing with Google Cloud verification; optional sharing.</td>
+                  <td><a href="https://smartatum.com/hero_investor_privacy_policy">Hero Investor policy</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">Dev Tycoon</th>
+                  <td>Local saves; AdMob (Unity Ads mediation) + UMP; Firebase Analytics, Crashlytics &amp; Remote Config; Play Billing with Google Cloud verification; local reminders.</td>
+                  <td><a href="https://smartatum.com/devtycoon-privacy">Dev Tycoon policy</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">Music Career Tycoon</th>
+                  <td>Local &amp; Play Games cloud saves, achievements, and leaderboards; AdMob &amp; mediation partners + UMP; Firebase Analytics &amp; Crashlytics; Play Billing.</td>
+                  <td><a href="https://smartatum.com/music_career_tycoon_privacy_policy">Music Career Tycoon policy</a></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+
+          <p>Google processes information collected through its services under the Google Privacy Policy. Smart Atum Studio does not receive your Google account password or payment-card details from Google Play.</p>
         </section>
 
         <section class="policy-section" id="use">
-          <div class="section-label mono">05 · How information is used</div>
+          <div class="section-label">05 · How we use information and legal bases</div>
           <h2>Limited to operating and improving our services</h2>
-          <p>Depending on the service and applicable law, Smart Atum uses information to:</p>
+          <p>Depending on the service and applicable law, Smart Atum Studio uses information to:</p>
           <ul>
-            <li>provide, secure, troubleshoot, and maintain the website and games;</li>
+            <li>provide, secure, troubleshoot, and maintain the website, promo-code redemptions, and games;</li>
             <li>evaluate and coordinate playtests and communicate with participants;</li>
             <li>diagnose crashes, defects, compatibility problems, and performance issues;</li>
             <li>protect private tests and services from fraud, spam, or abuse;</li>
             <li>respond to support, privacy, and deletion requests; and</li>
             <li>comply with applicable legal obligations and protect legal rights.</li>
           </ul>
-          <p>We do not use information submitted directly to Smart Atum for automated decisions that produce legal or similarly significant effects.</p>
+          <p>We do not use information submitted directly to Smart Atum Studio for automated decisions that produce legal or similarly significant effects.</p>
+
+          <h3>Legal bases for processing</h3>
+          <p>Where a legal basis is required under applicable law (such as in the EEA or the United Kingdom), processing depends on the feature and context: <strong>consent</strong> (for example, optional crash reporting where required or regional advertising consent), <strong>providing requested features or performing a contract</strong> (such as delivering game features, promo-code redemptions, or purchases), <strong>legitimate interests</strong> (such as website security, service reliability, crash troubleshooting, fraud and abuse prevention, and responding to inquiries, where not overridden by your rights), and <strong>compliance with legal obligations</strong>. This policy does not replace an affirmative consent choice where one is required.</p>
         </section>
 
         <section class="policy-section" id="sharing">
-          <div class="section-label mono">06 · Sharing and service providers</div>
+          <div class="section-label">06 · Sharing, service providers, and international transfers</div>
           <h2>We do not sell personal information</h2>
-          <p>We may provide limited information to service providers only when necessary to operate, secure, or support the relevant service. Providers depend on the service and title. They include:</p>
+          <p>We do not sell your personal information. In Android games that use third-party advertising mediation, regional consent choices and device ad settings govern whether advertising identifiers are shared for personalized advertising, as detailed in each game’s policy.</p>
+          <p>We may provide limited information to service providers only when necessary to operate, secure, or support the relevant service. Providers depend on the title and feature:</p>
           <ul>
-            <li><strong>Cloudflare</strong> for website delivery, security, and any separately enabled private bug-report infrastructure;</li>
-            <li><strong>Google</strong> for Google Forms, Google Play, Firebase, AdMob, and Google Cloud services used by a particular title;</li>
-            <li><strong>Unity and Meta</strong> for advertising in Hero Investor for Android through AdMob mediation, as described in its game-specific policy;</li>
+            <li><strong>Cloudflare</strong> for website delivery, security, promo-code verification, and any separately enabled private bug-report infrastructure;</li>
+            <li><strong>Google</strong> for Google Forms, Google Fonts on select promotional pages, Google Play, Firebase, AdMob, and Google Cloud services used by a particular title;</li>
+            <li><strong>Android advertising and mediation partners</strong> (such as Unity and Meta, and additional networks where listed) as described in each Android game’s dedicated policy;</li>
             <li><strong>Sentry</strong> for optional crash and error reporting in the Windows closed alpha;</li>
-            <li><strong>Valve</strong> for Steam distribution and enabled Steam platform features.</li>
+            <li><strong>Valve</strong> for Steam distribution and enabled Steam platform features; and</li>
+            <li><strong>Discord</strong> for closed-playtest coordination and community channels you choose to join.</li>
           </ul>
-          <p>We may also disclose information when required by law, to investigate abuse or security incidents, or to protect users, Smart Atum, or others. If the studio or its assets are reorganized or transferred, relevant information may transfer subject to this policy and applicable law.</p>
+          <p>We may also disclose information when required by law, to investigate abuse or security incidents, or to protect users, Smart Atum Studio, or others. If the studio or its assets are reorganized or transferred, relevant information may transfer subject to this policy and applicable law.</p>
+
+          <h3>International data transfers</h3>
+          <p>Smart Atum Studio and its service providers (including infrastructure located in the United States and other countries) may process information outside your country of residence. Where required by law, we rely on provider safeguards and other lawful transfer mechanisms for cross-border processing.</p>
+
           <div class="service-links">
             <a class="service-link" href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare privacy<span>External policy ↗</span></a>
             <a class="service-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google privacy<span>External policy ↗</span></a>
-            <a class="service-link" href="https://store.steampowered.com/privacy_agreement/" target="_blank" rel="noopener noreferrer">Valve privacy<span>External policy ↗</span></a>
+            <a class="service-link" href="https://store.steampowered.com/privacy_agreement/" target="_blank" rel="noopener noreferrer">Valve (Steam) privacy<span>External policy ↗</span></a>
+            <a class="service-link" href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Sentry privacy<span>External policy ↗</span></a>
+            <a class="service-link" href="https://discord.com/privacy" target="_blank" rel="noopener noreferrer">Discord privacy<span>External policy ↗</span></a>
           </div>
         </section>
 
         <section class="policy-section" id="retention">
-          <div class="section-label mono">07 · Retention and deletion</div>
-          <h2>Kept only for a legitimate purpose</h2>
+          <div class="section-label">07 · Retention and deletion</div>
+          <h2>Kept only as long as needed</h2>
           <ul>
-            <li><strong>Local PC data</strong> remains on your device until you delete it through the game, Windows, or uninstall and cleanup processes.</li>
+            <li><strong>Local PC and device data</strong> remains on your device until you delete it through the game, system settings, or uninstall and cleanup processes.</li>
+            <li><strong>Windows closed-alpha crash reports (Sentry)</strong> are retained according to the project’s configured Sentry retention period. Turning crash reporting off in Settings stops future reports.</li>
             <li><strong>Playtest applications and support communications</strong> are retained while reasonably necessary to evaluate applicants, operate the test, respond to the communication, handle disputes, and meet legal obligations.</li>
-            <li><strong>Online bug reports</strong>, if production submission is enabled, will be subject to the retention period disclosed in the reporting flow and the version of this policy then in effect.</li>
+            <li><strong>Promo-code redemptions and online bug reports</strong>: promo-claim state is kept to prevent duplicate redemptions; if online bug-report submission is enabled, reports follow the retention period disclosed in the reporting flow and the version of this policy then in effect.</li>
             <li><strong>Platform and provider information</strong> is retained according to the relevant service settings, lifecycle, and policies. For Android analytics, purchase-verification, and security records, see the game-specific notice.</li>
           </ul>
           <p>Uninstalling a game does not automatically remove cloud saves or previously collected online records. Our <a href="https://smartatum.com/deletion">data-deletion page</a> explains local, platform, and studio-managed data separately. Information may be deleted, aggregated, or anonymized when it is no longer needed. Some records may be retained longer where necessary for security, fraud prevention, legal compliance, or the establishment, exercise, or defense of legal claims.</p>
         </section>
 
         <section class="policy-section" id="rights">
-          <div class="section-label mono">08 · Your choices and rights</div>
-          <h2>Controls available to you</h2>
-          <p>Depending on the service, you may:</p>
+          <div class="section-label">08 · Your choices and privacy rights</div>
+          <h2>Controls and rights available to you</h2>
+          <p>Depending on the service you use, you can:</p>
           <ul>
-            <li>decline to submit a playtest application or support request;</li>
+            <li>decline to submit a playtest application, promo claim, or support request;</li>
             <li>turn automatic PC crash reporting on or off in Settings;</li>
             <li>decline optional logs or screenshots in an in-game bug report;</li>
             <li>clear local PC diagnostics through the game’s Settings screen;</li>
-            <li>delete local saves and other files using the game’s documented controls or Windows;</li>
+            <li>delete local saves and other files using the game’s documented controls or device/Windows settings;</li>
             <li>manage eligible Steam Cloud data and Steam privacy choices through Steam;</li>
-            <li>manage Play Games data through Google and available Android advertising or notification choices through the game and device settings; and</li>
-            <li>request access, correction, or deletion of information held directly by Smart Atum, where applicable.</li>
+            <li>manage Play Games data through Google and available Android advertising, consent, or notification choices through the game and device settings; and</li>
+            <li>exercise applicable privacy rights regarding information held directly by Smart Atum Studio.</li>
           </ul>
-          <p>Requests concerning Steam, Google, or another provider’s account data should be directed to that provider. For Smart Atum requests, use our <a href="https://smartatum.com/deletion">data-deletion page</a> or contact us. We may need enough information to locate the relevant record and verify that the request is legitimate.</p>
+
+          <h3>Regional privacy rights</h3>
+          <p>Depending on where you live (including the EEA, the United Kingdom, and applicable US states), you may have rights to request access to, correction of, deletion of, or a portable copy of personal data; object to or restrict certain processing; opt out of targeted advertising or sharing where applicable; withdraw consent at any time (without affecting the lawfulness of processing before withdrawal); and lodge a complaint with your local data-protection authority.</p>
+          <p>Requests concerning Steam, Google, Discord, or another platform’s account data should be directed to that provider. For Smart Atum Studio requests, use our <a href="https://smartatum.com/deletion">data-deletion page</a> or email <a href="mailto:contact@smartatum.com">contact@smartatum.com</a>. We may request limited information needed to locate the relevant record and verify that the request is legitimate, and we respond within the period required by applicable law.</p>
         </section>
 
         <section class="policy-section" id="security">
-          <div class="section-label mono">09 · Security, international processing, and children</div>
-          <h2>Safeguards and age boundaries</h2>
-          <p>We use reasonable technical and organizational safeguards appropriate to the information and service involved. No method of storage or transmission can be guaranteed completely secure.</p>
-          <p>Smart Atum and its service providers may process information in countries other than your own. Where required, we rely on provider safeguards and other lawful mechanisms for cross-border processing.</p>
-          <p>The Hero Investor PC closed-playtest application is limited to people aged <strong>18 or older</strong>. Our website, PC services, and games are not directed to children under 13, and we do not knowingly collect personal information from children under 13. A higher minimum age may apply where required by local law. If we learn that personal information was collected from a child contrary to these requirements, we will take reasonable steps to delete it.</p>
+          <div class="section-label">09 · Security</div>
+          <h2>Safeguards for your data</h2>
+          <p>We use reasonable technical and organizational safeguards appropriate to the information and service involved, including encrypted HTTPS transport for website pages, promo-code redemptions, crash reports, and backend requests. No method of electronic storage or transmission can be guaranteed completely secure.</p>
+        </section>
+
+        <section class="policy-section" id="children">
+          <div class="section-label">10 · Children's privacy and age requirements</div>
+          <h2>Age boundaries</h2>
+          <p>The Hero Investor PC closed-playtest application is limited to people aged <strong>18 or older</strong>. Our website, PC services, and games are not directed to children under 13, and we do not knowingly collect personal information from children under 13. A higher minimum age may apply where required by local law.</p>
+          <p>Supported Android titles apply age-appropriate session and advertising protections described in their game-specific notices. If you are a parent or guardian and believe personal information was collected from a child contrary to these requirements, email <a href="mailto:contact@smartatum.com">contact@smartatum.com</a> so we can investigate and take reasonable steps to delete it.</p>
         </section>
 
         <section class="policy-section" id="contact">
-          <div class="section-label mono">10 · Changes and contact</div>
+          <div class="section-label">11 · Changes and contact</div>
           <h2>Questions, requests, and policy updates</h2>
           <p>We may update this policy when our games, providers, legal obligations, or data practices change. Material changes will be posted on this page with a revised effective date. Features described as conditional apply only when they are enabled in the version you use.</p>
           <div class="contact-panel">
             <strong>Smart Atum Studio</strong>
             Operated by Ramy Tawfik<br>
-            Privacy and support: <a href="mailto:smartatum@gmail.com">smartatum@gmail.com</a><br>
+            Privacy and support: <a href="mailto:contact@smartatum.com">contact@smartatum.com</a><br>
+            Data deletion: <a href="https://smartatum.com/deletion">https://smartatum.com/deletion</a><br>
             Website: <a href="https://smartatum.com/">https://smartatum.com/</a>
           </div>
         </section>
@@ -585,14 +985,21 @@
     </div>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="footer-inner shell">
-      <span>© 2026 Smart Atum Studio · Privacy policy effective November 19, 2026.</span>
-      <span class="footer-links">
+      <a class="brand brand-small" href="https://smartatum.com/" aria-label="Smart Atum home">
+        <img src="/assets/logo.webp" alt="" width="32" height="48">
+        <span>SMART ATUM</span>
+      </a>
+      <div class="studio-copy">
+        <p>© 2026 Smart Atum Studio · Operated by Ramy Tawfik.</p>
+        <p>Privacy policy effective November 23, 2026.</p>
+      </div>
+      <div class="footer-links">
         <a href="https://smartatum.com/">Studio home</a>
         <a href="https://smartatum.com/deletion">Data deletion</a>
-        <a href="mailto:smartatum@gmail.com">Contact</a>
-      </span>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </footer>
 </body>
