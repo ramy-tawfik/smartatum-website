@@ -755,7 +755,7 @@
           <article class="boundary-item">
             <span class="index">02 · Your choice</span>
             <h3>Shared deliberately</h3>
-            <p>Information is sent to Smart Atum Studio when you submit a playtest application, redeem a promo code, contact support, send an in-game bug report, or enable optional crash reporting in the Hero Investor PC closed alpha.</p>
+            <p>Information is sent to Smart Atum Studio when you submit a playtest application, redeem a promo code, contact support, send an in-game bug report, or enable optional crash and gameplay reporting in Hero Investor for Windows PC.</p>
           </article>
           <article class="boundary-item">
             <span class="index">03 · Platform &amp; third-party services</span>
@@ -818,15 +818,15 @@
           <h3>Files stored on the PC</h3>
           <p>Hero Investor PC may store saves, autosaves, manual checkpoints, settings, logs, screenshots created by the game, pending bug-report packages, and bounded gameplay diagnostics in the game’s Windows application-data folders. These files remain on the PC unless you use an explicit transfer feature.</p>
           <p>Machine-local diagnostics are limited in size and rotation. A random installation identifier may be stored locally to connect diagnostic events from the same installation; it is not your Steam identity. The game provides a separate control to clear local analytics diagnostics without deleting saves or ordinary settings.</p>
-          <div class="note"><strong>Local gameplay diagnostics</strong> stay on your PC. The closed alpha has a separate setting for automatic Sentry crash reports.</div>
+          <div class="note"><strong>Local gameplay diagnostics</strong> stay on your PC. A separate optional setting controls automatic Sentry crash reports and anonymous gameplay counters in configured builds.</div>
 
           <h3>Steam features</h3>
           <p>When supported and enabled in the build you use, the game may ask the Steam client to synchronize eligible save archives, unlock achievements, update achievement progress statistics, confirm ownership, display the Steam overlay, or show broad rich-presence information such as general gameplay state, in-game year, or company level.</p>
           <p>Machine-specific settings, live databases, logs, local diagnostics, and pending bug-report packages are not intended for Steam Cloud synchronization. Valve processes Steam account, purchase, Cloud, achievement, platform, and usage information under Valve’s own agreements and privacy policy.</p>
 
-          <h3 id="pc-crash-reporting">Optional crash reporting in the Windows closed alpha</h3>
-          <p>Smart Atum Studio uses Sentry to diagnose crashes and selected errors. On first launch, the reporting box starts checked for new closed-alpha players. Choose <strong>Agree and enable reports</strong> to start sharing, or clear the box and choose <strong>Agree and continue</strong> to play with reporting off. You can change your choice in Settings at any time. Turning it off stops future reports.</p>
-          <p>When enabled, the game automatically sends technical details to Sentry in the United States. A report may include the exception type and stack frames, thread, game version, system and runtime details, current and previous screens, and game phase. The closed alpha sends no performance traces. Automatic reports exclude saves, screenshots, application logs, text you enter, Steam identity, account names, and financial values.</p>
+          <h3 id="pc-crash-reporting">Optional crash reporting and anonymous gameplay counters</h3>
+          <p>Smart Atum Studio uses Sentry in configured Hero Investor for Windows PC builds (including playtest, demo, beta, and release builds) to diagnose crashes and selected errors and to measure anonymous gameplay balance. On first launch, you can choose whether to enable optional reporting (in closed-playtest builds the checkbox may start pre-selected before you confirm; in public release builds it starts unchecked). Choose <strong>Agree and enable reports</strong> to turn it on, or clear the box and choose <strong>Agree and continue</strong> to play with reporting off. You can change your choice in Settings at any time. Turning it off stops future reports.</p>
+          <p>When enabled in a configured build, the game automatically sends technical error reports and anonymous gameplay counters and milestone events to Sentry in the United States. Error reports may include the exception type and stack frames, thread, game version, system and runtime details, current and previous screens, and game phase. Anonymous gameplay telemetry is limited to closed event, screen, and action categories (such as screen visits, day advances, trades by asset class, upgrades, and onboarding or level/year milestones) with no personal identifiers or financial amounts. Where enabled in a build, optional reports may also include low-rate sampled technical performance timings (such as startup, navigation, day-advance, and save/restore durations). Automatic reports exclude saves, screenshots, application logs, text you enter, Steam identity, account names, and financial values.</p>
           <p>The Sentry project disables IP address storage. Event retention follows the project’s configured Sentry retention period. For privacy questions or deletion requests, use the <a href="https://smartatum.com/deletion">data-deletion page</a> or email <a href="mailto:contact@smartatum.com">contact@smartatum.com</a>.</p>
 
           <h3>Optional in-game bug reports</h3>
@@ -885,7 +885,7 @@
           <ul>
             <li>provide, secure, troubleshoot, and maintain the website, promo-code redemptions, and games;</li>
             <li>evaluate and coordinate playtests and communicate with participants;</li>
-            <li>diagnose crashes, defects, compatibility problems, and performance issues;</li>
+            <li>diagnose crashes, defects, compatibility problems, and performance issues, and evaluate anonymous gameplay balance in opted-in PC builds;</li>
             <li>protect private tests and services from fraud, spam, or abuse;</li>
             <li>respond to support, privacy, and deletion requests; and</li>
             <li>comply with applicable legal obligations and protect legal rights.</li>
@@ -893,7 +893,7 @@
           <p>We do not use information submitted directly to Smart Atum Studio for automated decisions that produce legal or similarly significant effects.</p>
 
           <h3>Legal bases for processing</h3>
-          <p>Where a legal basis is required under applicable law (such as in the EEA or the United Kingdom), processing depends on the feature and context: <strong>consent</strong> (for example, optional crash reporting where required or regional advertising consent), <strong>providing requested features or performing a contract</strong> (such as delivering game features, promo-code redemptions, or purchases), <strong>legitimate interests</strong> (such as website security, service reliability, crash troubleshooting, fraud and abuse prevention, and responding to inquiries, where not overridden by your rights), and <strong>compliance with legal obligations</strong>. This policy does not replace an affirmative consent choice where one is required.</p>
+          <p>Where a legal basis is required under applicable law (such as in the EEA or the United Kingdom), processing depends on the feature and context: <strong>consent</strong> (for example, optional PC crash and gameplay reporting or regional advertising consent), <strong>providing requested features or performing a contract</strong> (such as delivering game features, promo-code redemptions, or purchases), <strong>legitimate interests</strong> (such as website security, service reliability, crash troubleshooting, fraud and abuse prevention, and responding to inquiries, where not overridden by your rights), and <strong>compliance with legal obligations</strong>. This policy does not replace an affirmative consent choice where one is required.</p>
         </section>
 
         <section class="policy-section" id="sharing">
@@ -905,7 +905,7 @@
             <li><strong>Cloudflare</strong> for website delivery, security, promo-code verification, and any separately enabled private bug-report infrastructure;</li>
             <li><strong>Google</strong> for Google Forms, Google Fonts on select promotional pages, Google Play, Firebase, AdMob, and Google Cloud services used by a particular title;</li>
             <li><strong>Android advertising and mediation partners</strong> (such as Unity and Meta, and additional networks where listed) as described in each Android game’s dedicated policy;</li>
-            <li><strong>Sentry</strong> for optional crash and error reporting in the Windows closed alpha;</li>
+            <li><strong>Sentry</strong> for optional crash/error reporting, anonymous gameplay counters, and (where enabled) sampled performance timings in configured Hero Investor for Windows PC builds;</li>
             <li><strong>Valve</strong> for Steam distribution and enabled Steam platform features; and</li>
             <li><strong>Discord</strong> for closed-playtest coordination and community channels you choose to join.</li>
           </ul>
@@ -928,7 +928,7 @@
           <h2>Kept only as long as needed</h2>
           <ul>
             <li><strong>Local PC and device data</strong> remains on your device until you delete it through the game, system settings, or uninstall and cleanup processes.</li>
-            <li><strong>Windows closed-alpha crash reports (Sentry)</strong> are retained according to the project’s configured Sentry retention period. Turning crash reporting off in Settings stops future reports.</li>
+            <li><strong>Hero Investor PC optional Sentry reports</strong> (crash/error reports, anonymous gameplay counters, and any enabled performance timings) are retained according to the project’s configured Sentry retention period. Turning reporting off in Settings stops future reports.</li>
             <li><strong>Playtest applications and support communications</strong> are retained while reasonably necessary to evaluate applicants, operate the test, respond to the communication, handle disputes, and meet legal obligations.</li>
             <li><strong>Promo-code redemptions and online bug reports</strong>: promo-claim state is kept to prevent duplicate redemptions; if online bug-report submission is enabled, reports follow the retention period disclosed in the reporting flow and the version of this policy then in effect.</li>
             <li><strong>Platform and provider information</strong> is retained according to the relevant service settings, lifecycle, and policies. For Android analytics, purchase-verification, and security records, see the game-specific notice.</li>
@@ -942,7 +942,7 @@
           <p>Depending on the service you use, you can:</p>
           <ul>
             <li>decline to submit a playtest application, promo claim, or support request;</li>
-            <li>turn automatic PC crash reporting on or off in Settings;</li>
+            <li>turn optional PC Sentry reporting (crash reports and anonymous gameplay counters) on or off in Settings;</li>
             <li>decline optional logs or screenshots in an in-game bug report;</li>
             <li>clear local PC diagnostics through the game’s Settings screen;</li>
             <li>delete local saves and other files using the game’s documented controls or device/Windows settings;</li>
@@ -959,7 +959,7 @@
         <section class="policy-section" id="security">
           <div class="section-label">09 · Security</div>
           <h2>Safeguards for your data</h2>
-          <p>We use reasonable technical and organizational safeguards appropriate to the information and service involved, including encrypted HTTPS transport for website pages, promo-code redemptions, crash reports, and backend requests. No method of electronic storage or transmission can be guaranteed completely secure.</p>
+          <p>We use reasonable technical and organizational safeguards appropriate to the information and service involved, including encrypted HTTPS transport for website pages, promo-code redemptions, optional Sentry telemetry, and backend requests. No method of electronic storage or transmission can be guaranteed completely secure.</p>
         </section>
 
         <section class="policy-section" id="children">
