@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Privacy information for Streamlord on Android: local saves, Google Play Age Signals, rewarded and milestone interstitial advertising, UMP consent, Firebase Analytics Consent Mode and Crashlytics, Google Play Billing, and data deletion.">
+  <meta name="description" content="Privacy information for Streamlord on Android: local saves and consumable wallet backup, Google Play Age Signals, rewarded and milestone interstitial advertising, UMP consent, Firebase Analytics Consent Mode and Crashlytics, Google Play Billing (purchases, consumables, and subscriptions), and data deletion.">
   <link rel="canonical" href="https://smartatum.com/streamlord_privacy_policy">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-EBgctfYy/H/hG4gNVTXkqQ3U0juh62hYkBDAFujJFQE='; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
   <title>Streamlord Privacy Policy | Smart Atum Studio</title>
@@ -20,7 +20,7 @@
 <main>
   <nav aria-label="Primary navigation"><a href="https://smartatum.com/">Studio home</a><a href="https://smartatum.com/streamlord_terms">Terms &amp; legal notices</a><a href="https://smartatum.com/privacy">Privacy overview</a><a href="https://smartatum.com/deletion">Data deletion</a></nav>
   <h1>Streamlord Privacy Policy</h1>
-  <p class="date">Last updated: November 25, 2026</p>
+  <p class="date">Last updated: November 27, 2026</p>
 
 <p><strong>Smart Atum Studio is an independent game studio operated by Ramy Tawfik</strong> ("we", "us", or "our"). This policy describes how information is handled in <strong>Streamlord for Android</strong>, package <strong>com.smartatum.streamlord</strong>.</p>
 <p>Streamlord is an offline-capable media-business entertainment simulation. Founder names, studio names, talent rosters, revenues, and financial figures created in gameplay are fictional in-game content, not real-world personal or financial records. All in-game characters, studios, competitor brands, logos, titles, and financial figures are fictional; see our <a href="https://smartatum.com/streamlord_terms">Terms of Use and Legal Notices</a> for full disclaimers. Features described below as optional or version-dependent apply only when enabled in the version you use.</p>
@@ -56,8 +56,9 @@
 </ul>
 <p>AdMob initialization and all ad requests wait until both Google Play Age Signals and UMP consent resolve. Coarse location collection is disabled in AdMob requests; ad content is capped at <strong>T</strong> (Teen) for general and teen sessions and at <strong>G</strong> (General Audiences) with child-directed treatment and third-party mediation adapter initialization disabled for under-13 sessions; teen (13&ndash;17) and mandatory-region unverified sessions receive non-personalized teen-restricted ad treatment. AdMob processes device and advertising identifiers, network information, approximate location, and ad interaction or performance data to deliver, measure, and prevent fraud on ads according to applicable consent, age-appropriate treatment, and device settings.</p>
 
-<h3>In-app purchases</h3>
-<p>Where optional one-time in-app purchases are enabled in the version you use (such as unlocking the Headhunter feature), purchases, payment processing, and entitlement restoration on reinstall or new devices are handled by <strong>Google Play Billing</strong>. We do not receive your payment-card details or Google account password from Google Play. Local entitlement cache data may be stored on your device so valid purchases remain available during offline play and are reconciled with Google Play when online.</p>
+<h3>In-app purchases, consumables, and subscriptions</h3>
+<p>Where optional in-app purchases are enabled in the version you use &mdash; including permanent non-consumable expansions and bundles (Headhunter, Starter Mogul Pack, Executive Expansion, Founder's Complete Edition / Upgrade, and Lifetime Mogul VIP), consumable packs (Ad-Skip Vouchers and Venture Capital Grants), and the optional auto-renewing <strong>Streamlord Mogul Pass</strong> subscription (monthly or annual) &mdash; checkout, payment processing, billing, subscription management, and non-consumable/subscription restoration are handled by <strong>Google Play Billing</strong>. We do not receive your payment-card details or Google account password from Google Play.</p>
+<p>Streamlord maintains a local entitlement cache so verified purchases remain usable offline and are reconciled with Google Play when online; non-consumable and subscription cache data (<code>entitlement_prefs</code>) is excluded from Android Auto Backup so ownership restores authoritatively from Google Play on reinstall. Separately, Streamlord maintains a local account-scoped consumable wallet (<code>consumable_wallet_prefs</code>) storing unspent voucher and VC Grant counts, processed consumable purchase tokens (solely for idempotent deduplication before acknowledging consumption to Google Play), and your last VIP reward claim timestamp (used strictly on-device to display an informational reminder if your Mogul Pass has gone unused for 14 or more days). This consumable wallet persists across in-game <strong>More &rarr; Reset Game</strong> actions and remains eligible for Android Auto Backup / device transfer when enabled in your Android settings so unspent consumed items survive device restores.</p>
 
 <h3>Support communications</h3>
 <p>If you contact us by email for support or privacy requests, we receive your email address, message, and any information you choose to include so that we can respond.</p>
@@ -78,10 +79,10 @@
 
 <h2 id="retention">4. Retention and deletion</h2>
 <ul>
-<li><strong>Local game data</strong> remains on your device until you use the in-game <strong>More &rarr; Reset Game</strong> option, clear the app's storage in Android settings, or uninstall the app. Note that resetting a game removes local gameplay progress and saves, while valid Google Play purchases remain restorable through your Google Play account.</li>
+<li><strong>Local game data and consumable wallet balances</strong> remain on your device until you clear the app's storage in Android settings or uninstall the app. Using the in-game <strong>More &rarr; Reset Game</strong> option deletes local gameplay progress and saves, while unspent consumable wallet balances (Ad-Skip Vouchers and VC Grant credits) and valid Google Play entitlements persist across resets, and non-consumable/subscription purchases remain restorable through your Google Play account. When Android Auto Backup is enabled on your device, unspent consumable wallet data may also be included in your device backup, whereas non-consumable entitlement caches restore directly from Google Play.</li>
 <li><strong>Google Play Age Signals</strong> are processed transiently in memory for the current app session only and discarded immediately after deriving session privacy flags; they are not stored in local saves, backups, crash reports, or studio servers.</li>
 <li><strong>Analytics and crash diagnostic data</strong> are retained according to Firebase's configured settings and lifecycle for measuring usage, troubleshooting, and improving reliability. Aggregated reports may persist separately from individual event records.</li>
-<li><strong>Google Play purchase records</strong> are managed and retained by Google Play under Google's policies and applicable legal obligations.</li>
+<li><strong>Google Play purchase and subscription records</strong> are managed and retained by Google Play under Google's policies and applicable legal obligations. Resetting a game or uninstalling Streamlord does not cancel an active Google Play subscription; subscriptions are managed and canceled through Google Play Subscriptions.</li>
 <li><strong>Support correspondence</strong> is retained as needed to resolve your inquiry and meet applicable legal obligations.</li>
 </ul>
 <p>Deleting local data does not automatically erase records already processed by Google or Firebase. Deletion requests are subject to records we can identify and control and to necessary legal, transaction, or security exceptions.</p>
